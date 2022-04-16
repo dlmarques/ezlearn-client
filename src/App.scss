@@ -1,20 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 body {
   background-size: cover;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Poppins', sans-serif;
   transition: all 0.3s ease-in-out;
-  overflow-x: hidden;
+overflow-x: hidden;
+
 }
 
 .page-container {
+height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
+overflow-x: hidden;
+}
+
+header {
   background: url("../assets/images/bck5.png");
-  border-bottom-right-radius: 100% 800px;
-  border-bottom-left-radius: 0;
-  -webkit-box-shadow: 9px 6px 25px -12px rgba(0, 0, 0, 0.329);
-  -moz-box-shadow:9px 6px 25px -12px rgba(0, 0, 0, 0.329);
-  box-shadow:9px 6px 25px -12px rgba(0, 0, 0, 0.329);
 }
 
 .navbar {
@@ -25,6 +30,7 @@ body {
   height: 90px;
   width: 100vw;
   transition: all 0.3s ease-in-out;
+  
   .logo {
     width: 33vw;
     display: flex;
@@ -65,6 +71,7 @@ body {
     text-decoration: none;
     color: #fff;
     transition: all 0.3s ease-in-out;
+    font-weight: 500;
   }
 
   #platform {
@@ -74,7 +81,7 @@ body {
       padding: 15px;
       border-radius: 20px;
       color: #073375;
-      font-weight: 700;
+      font-weight: 500;
     }
   }
 
@@ -90,10 +97,17 @@ body {
 
 #hero {
   width: 100vw;
-  height: calc(100vh - 90px);
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  background: url("../assets/images/bck5.png");
+  border-bottom-right-radius: 100% 900px;
+  border-bottom-left-radius: 0;
+  -webkit-box-shadow: 9px 6px 25px -12px rgba(0, 0, 0, 0.329);
+  -moz-box-shadow: 9px 6px 25px -12px rgba(0, 0, 0, 0.329);
+  box-shadow: 9px 6px 25px -12px rgba(0, 0, 0, 0.329);
+
   .text {
     width: 600px;
     height: auto;
@@ -102,7 +116,7 @@ body {
     h1 {
       font-weight: 700;
       color: #fff;
-      font-size: 6rem;
+      font-size: 5.5rem;
       margin: 0;
     }
     p {
@@ -110,17 +124,24 @@ body {
       color: #fff;
       margin: 16px 0;
       text-shadow: rgb(10 56 166) 0px 0px 2.4rem;
+      font-weight: 300;
     }
     a {
       display: flex;
       justify-content: center;
       color: #073375;
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 500;
       background-color: #fff;
       border-radius: 20px;
       padding: 20px;
       width: 200px;
+      transition: all .3s ease-in-out;
+    }
+    #discover:hover{
+      
+      background: #073375;
+      color: #fff;
     }
   }
 
@@ -128,4 +149,78 @@ body {
     width: auto;
     height: 70vh;
   }
+}
+
+#something {
+margin: auto;
+margin-top: 50px;
+width: 60vw;
+display: flex;
+flex-direction: column;
+align-items: center;
+font-family: 'Poppins', sans-serif;
+
+.title{
+  width: 950px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h1{
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000b53;
+  }
+
+  h3{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    color: #000b53;
+  }
+}
+
+
+  .something-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 70vw;
+    height: 60vh;
+   
+    .item {
+      width: 200px;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #000b53;
+      text-align: center;
+      h3{
+        font-weight: 700;
+        font-size: 25px;
+        font-weight: lighter;
+        
+      }
+      img {
+        height: 225px;
+
+        &:hover{
+          animation: tilt-shaking 1s infinite;
+        }
+      }
+    }
+  }
+}
+
+
+@keyframes tilt-shaking {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0eg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
 }
