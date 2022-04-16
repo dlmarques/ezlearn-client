@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+body {
+  background-size: cover;
+  font-family: "Montserrat", sans-serif;
+  transition: all 0.3s ease-in-out;
+  overflow-x: hidden;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  background: url("../assets/images/bck5.png");
+  border-bottom-right-radius: 100% 800px;
+  border-bottom-left-radius: 0;
+  -webkit-box-shadow: 9px 6px 25px -12px rgba(0, 0, 0, 0.329);
+  -moz-box-shadow:9px 6px 25px -12px rgba(0, 0, 0, 0.329);
+  box-shadow:9px 6px 25px -12px rgba(0, 0, 0, 0.329);
+}
+
+.navbar {
+  /* background-color: #fff; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 90px;
+  width: 100vw;
+  transition: all 0.3s ease-in-out;
+  .logo {
+    width: 33vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+
+    img {
+      width: 150px;
+    }
+  }
+
+  .links {
+    width: 33vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    width: 33vw;
+    transition: all 0.3s ease-in-out;
+
+    svg {
+      font-size: 30px;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+  }
+
+  #platform {
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 20px;
+      color: #073375;
+      font-weight: 700;
+    }
+  }
+
+  /*   &:hover{
+      background-color: #fff;
+      transition: all .3s ease-in-out;
+    
+      a{
+          color: #000;
+      }
+  } */
+}
+
+#hero {
+  width: 100vw;
+  height: calc(100vh - 90px);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  .text {
+    width: 600px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    h1 {
+      font-weight: 700;
+      color: #fff;
+      font-size: 6rem;
+      margin: 0;
+    }
+    p {
+      font-size: 20px;
+      color: #fff;
+      margin: 16px 0;
+      text-shadow: rgb(10 56 166) 0px 0px 2.4rem;
+    }
+    a {
+      display: flex;
+      justify-content: center;
+      color: #073375;
+      text-decoration: none;
+      font-weight: 700;
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      width: 200px;
+    }
+  }
+
+  img {
+    width: auto;
+    height: 70vh;
+  }
+}
