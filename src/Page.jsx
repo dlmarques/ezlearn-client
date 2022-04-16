@@ -7,6 +7,7 @@ import time from "./img/time.png";
 import target from "./img/target.png";
 import connect from "./img/connect.png";
 import logo from "./img/logo.png";
+import logoActive from "./img/logo-active.png";
 import MenuMobile from "./MenuMobile/MenuMobile";
 
 const Page = () => {
@@ -32,7 +33,7 @@ const Page = () => {
           <div className={changeColor ? "topbar-active" : "topbar"}>
             <nav>
               <div className="logo">
-                <img src={logo} alt="" />
+                <img src={changeColor ? logoActive : logo} alt="" />
               </div>
               <div className="links">
                 <a href="">Product</a>

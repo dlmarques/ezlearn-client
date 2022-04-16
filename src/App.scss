@@ -82,7 +82,7 @@ header {
       transition: all 0.3s ease-in-out;
 
       img {
-        width: 150px;
+        width: 170px;
       }
       @media (max-width: 950px) {
         display: none;
@@ -158,6 +158,10 @@ header {
   -moz-box-shadow: 9px 6px 25px -12px rgba(0, 0, 0, 0.414);
   box-shadow: 9px 6px 25px -12px rgba(0, 0, 0, 0.414);
 
+
+  @media (max-width: 950px) {
+    display: none;
+  }
   nav {
     height: 90px;
     width: 100vw;
@@ -172,7 +176,7 @@ header {
       transition: all 0.3s ease-in-out;
 
       img {
-        width: 150px;
+        width: 170px;
       }
       @media (max-width: 950px) {
         display: none;
