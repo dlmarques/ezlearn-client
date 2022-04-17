@@ -9,6 +9,7 @@ import connect from "./img/connect.png";
 import logo from "./img/logo.png";
 import logoActive from "./img/logo-active.png";
 import MenuMobile from "./MenuMobile/MenuMobile";
+import Swiper from "./Swiper/Swiper";
 
 const Page = () => {
   const prevScrollY = useRef(0);
@@ -24,7 +25,7 @@ const Page = () => {
       setChangeColor(false);
     }
     prevScrollY.current = currentScrollY;
-  }
+  };
 
   return (
     <>
@@ -102,6 +103,13 @@ const Page = () => {
               </div>
             </div>
           </section>
+          <div className="parallax">
+            <h1>Services</h1>
+            <div className="swiper-container">
+            <Swiper/>
+            </div>
+          </div>
+         
         </div>
       </div>
     </>
