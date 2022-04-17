@@ -8,7 +8,8 @@ import connect from "./img/connect.png";
 import logo from "./img/logo.png";
 import logoActive from "./img/logo-active.png";
 import MenuMobile from "./MenuMobile/MenuMobile";
-import about from "./img/about.svg"
+import about from "./img/about.svg";
+import mix from "./img/mix.png";
 import { BsCameraVideo } from "react-icons/bs";
 import { BiMessageDetail } from "react-icons/bi";
 import { FiBook } from "react-icons/fi";
@@ -153,11 +154,21 @@ const Page = () => {
           </section>
           <section id="about">
             <div className="about-container">
-              <div className="left">
+              <div className="top">
+              <img src={mix} alt="" />
+              <div className="about-text">
+                <div className="title">
+                  <h1>About EzLearn</h1>
+                </div>
+                <div className="text">
+                  <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptatum maxime magni dolore sequi fuga sint libero consequatur necessitatibus laboriosam, neque voluptates sed, fugit adipisci, perspiciatis ratione eos. Quas, qui?</h3>
+                </div>
               </div>
-              <div className="right">
+              </div>
+              <div className="bottom">
                 
               </div>
+             
             </div>
           </section>
         </div>
