@@ -3,13 +3,16 @@ import "./App.scss";
 import { HiOutlineMenu } from "react-icons/hi";
 import man from "./img/man.png";
 import globe from "./img/globe.png";
-import time from "./img/time.png";
 import target from "./img/target.png";
 import connect from "./img/connect.png";
 import logo from "./img/logo.png";
 import logoActive from "./img/logo-active.png";
 import MenuMobile from "./MenuMobile/MenuMobile";
-import Swiper from "./Swiper/Swiper";
+import about from "./img/about.svg"
+import { BsCameraVideo } from "react-icons/bs";
+import { BiMessageDetail } from "react-icons/bi";
+import { FiBook } from "react-icons/fi";
+import { BsPeople } from "react-icons/bs";
 
 const Page = () => {
   const prevScrollY = useRef(0);
@@ -37,8 +40,8 @@ const Page = () => {
                 <img src={changeColor ? logoActive : logo} alt="" />
               </div>
               <div className="links">
-                <a href="">Product</a>
-                <a href="">Services</a>
+                <a href="#ezlearn">EzLearn</a>
+                <a href="#services">Services</a>
                 <a href="">About</a>
                 <a href="">Contact</a>
               </div>
@@ -79,7 +82,7 @@ const Page = () => {
 
             <img src={man} alt="" />
           </section>
-          <section id="something">
+          <section id="ezlearn">
             <div className="title">
               <h1>Why EzLearn?</h1>
               <h3>
@@ -103,13 +106,60 @@ const Page = () => {
               </div>
             </div>
           </section>
-          <div className="parallax">
-            <h1>Services</h1>
-            <div className="swiper-container">
-            <Swiper/>
+          <section id="services">
+            <div className="parallax">
+              <h1>Services</h1>
+              <div className="services-container">
+                <div className="card">
+                  <div className="title-card">
+                    <BsCameraVideo />
+                    <h1>Video Lessons</h1>
+                  </div>
+                  <div className="text-card">
+                    <h3>EzLearn allow your platform have video lessons.</h3>
+                  </div>
+                </div>
+                <div className="card">
+                  <div className="title-card">
+                    <BiMessageDetail />
+                    <h1>Live Chat</h1>
+                  </div>
+                  <div className="text-card">
+                    <h3>EzLearn can support live chat.</h3>
+                  </div>
+                </div>
+                <div className="card">
+                  <div className="title-card">
+                    <FiBook />
+                    <h1>School Library</h1>
+                  </div>
+                  <div className="text-card">
+                    <h3>EzLearn can have a library with school books.</h3>
+                  </div>
+                </div>
+                <div className="card">
+                  <div className="title-card">
+                    <BsPeople />
+                    <h1>Working Together</h1>
+                  </div>
+                  <div className="text-card">
+                    <h3>
+                      EzLearn allow working together with your classmates.
+                    </h3>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-         
+          </section>
+          <section id="about">
+            <div className="about-container">
+              <div className="left">
+              </div>
+              <div className="right">
+                
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </>
