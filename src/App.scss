@@ -470,10 +470,12 @@ header {
     }
   }
   #about {
-    height: 700px;
+    height: auto;
     width: 100vw;
+    padding-top: 50px;
 
     .about-container {
+      padding-top: 50px;
       width: 100%;
       height: 100%;
       display: flex;
@@ -500,6 +502,7 @@ header {
               font-weight: 700;
               color: #000b53;
               font-size: 3rem;
+              text-transform: uppercase;
               margin: 0;
             }
           }
@@ -521,6 +524,96 @@ header {
       .bottom{
         width: 100%;
         height: 40%;
+        display: flex;
+        justify-content: center;
+        gap: 100px;
+        padding-top: 50px;
+        .wrapper{
+          width: 30%;
+          
+        }
+
+        .icons{ 
+          height: 0;
+          width: 40%;
+          display: flex;
+          justify-content: space-between;
+          gap: 50px;
+
+          span{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            
+            &:hover{
+
+              svg{
+                color: #073375;
+                transform: scale(1.1);
+              }
+            }
+            svg{
+              font-size: 50px;
+              color: #000b53;
+              transition: all .5s ease-in-out;
+            }
+
+            .text{
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+
+              h3{
+                height: 0;
+                font-size: 30px;
+                color: #000b53;
+              }
+              p{
+
+              }
+            }
+          }
+        }
+      }
+    }
+    .team-container{
+        padding-top: 150px;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      h1{
+        text-align: center;
+        font-size: 50px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #000b53;
+      }
+      h3{
+        text-align: center;
+        font-size: 25px;
+        font-weight: 300;
+        color: #000b53;
+        width: 800px;
+        margin-top: -10px;
+      }
+
+      .team-box{
+        height: auto;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        padding: 50px;
+        .item-box{
+          height: 400px;
+          width: 25%;
+          background-color: #000b53;
+        }
       }
     }
   }

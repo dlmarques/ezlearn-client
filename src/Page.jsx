@@ -8,10 +8,11 @@ import connect from "./img/connect.png";
 import logo from "./img/logo.png";
 import logoActive from "./img/logo-active.png";
 import MenuMobile from "./MenuMobile/MenuMobile";
-import about from "./img/about.svg";
 import mix from "./img/mix.png";
+import { AiOutlineUser } from "react-icons/ai";
 import { BsCameraVideo } from "react-icons/bs";
-import { BiMessageDetail } from "react-icons/bi";
+import { BiMessageDetail, BiWorld } from "react-icons/bi";
+import { FaHandshake, FaRegHandshake } from "react-icons/fa";
 import { FiBook } from "react-icons/fi";
 import { BsPeople } from "react-icons/bs";
 
@@ -155,20 +156,58 @@ const Page = () => {
           <section id="about">
             <div className="about-container">
               <div className="top">
-              <img src={mix} alt="" />
-              <div className="about-text">
-                <div className="title">
-                  <h1>About EzLearn</h1>
+                <img src={mix} alt="" />
+                <div className="about-text">
+                  <div className="title">
+                    <h1>About EzLearn</h1>
+                  </div>
+                  <div className="text">
+                    <h3>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Quos voluptatum maxime magni dolore sequi fuga sint libero
+                      consequatur necessitatibus laboriosam, neque voluptates
+                      sed, fugit adipisci, perspiciatis ratione eos. Quas, qui?
+                    </h3>
+                  </div>
                 </div>
-                <div className="text">
-                  <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptatum maxime magni dolore sequi fuga sint libero consequatur necessitatibus laboriosam, neque voluptates sed, fugit adipisci, perspiciatis ratione eos. Quas, qui?</h3>
-                </div>
-              </div>
               </div>
               <div className="bottom">
-                
+                <div className="wrapper"></div>
+                <div className="icons">
+                  <span>
+                    <AiOutlineUser />
+                    <div className="text">
+                      <h3>30k</h3>
+                      <p>Total Users</p>
+                    </div>
+                  </span>
+                  <span>
+                    <BiWorld />
+                    <div className="text">
+                      <h3>90+</h3>
+                      <p>Countries</p>
+                    </div>
+                  </span>
+                  <span>
+                    <FaRegHandshake />
+                    <div className="text">
+                      <h3>95%</h3>
+                      <p>Satisfaction</p>
+                    </div>
+                  </span>
+                </div>
               </div>
-             
+            </div>
+            <div className="team-container">
+              <h1>Expert Team Members</h1>
+              <h3>Our team of creative programmers, marketing experts and members. We are to be doing what we love.</h3>
+              <div className="team-box">
+                <div className="item-box">
+                  
+                </div>
+                <div className="item-box"></div>
+                <div className="item-box"></div>
+              </div>
             </div>
           </section>
         </div>
