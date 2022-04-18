@@ -7,12 +7,16 @@ import target from "./img/target.png";
 import connect from "./img/connect.png";
 import logo from "./img/logo.png";
 import logoActive from "./img/logo-active.png";
+import team1 from "./img/team1.png"
+import team2 from "./img/team2.png"
+import team3 from "./img/team3.png"
 import MenuMobile from "./MenuMobile/MenuMobile";
 import mix from "./img/mix.png";
 import { AiOutlineUser } from "react-icons/ai";
 import { BsCameraVideo } from "react-icons/bs";
 import { BiMessageDetail, BiWorld } from "react-icons/bi";
-import { FaHandshake, FaRegHandshake } from "react-icons/fa";
+import {ImLinkedin2} from "react-icons/im"
+import { FaHandshake, FaRegHandshake, FaLinkedinIn } from "react-icons/fa";
 import { FiBook } from "react-icons/fi";
 import { BsPeople } from "react-icons/bs";
 
@@ -44,7 +48,7 @@ const Page = () => {
               <div className="links">
                 <a href="#ezlearn">EzLearn</a>
                 <a href="#services">Services</a>
-                <a href="">About</a>
+                <a href="#about">About</a>
                 <a href="">Contact</a>
               </div>
               <div className="menu">
@@ -203,10 +207,35 @@ const Page = () => {
               <h3>Our team of creative programmers, marketing experts and members. We are to be doing what we love.</h3>
               <div className="team-box">
                 <div className="item-box">
-                  
+                <img src={team1} alt="" id="team-pic" />
+                <div className="item-text">
+                  <h2>Daniel Shelach</h2>
+                  <h3>Chief Executive Officer</h3>
+                  <div className="icons">
+                      <a href="" id="icon-team"><FaLinkedinIn/></a>
+                      </div>
                 </div>
-                <div className="item-box"></div>
-                <div className="item-box"></div>
+                </div>
+                <div className="item-box">
+                  <img src={team2} alt="" id="team-pic" />
+                  <div className="item-text">
+                    <h2>Bernarda Saffron</h2>
+                    <h3>Growth Marketer</h3>
+                    <div className="icons">
+                      <a href="" id="icon-team"><FaLinkedinIn/></a>
+                      </div>
+                  </div>
+                </div>
+                <div className="item-box">
+                  <img src={team3} alt="" id="team-pic" />
+                  <div className="item-text">
+                    <h2>Ryan Beau</h2>
+                    <h3>Web Developer</h3>
+                    <div className="icons">
+                      <a href="" id="icon-team"><FaLinkedinIn/></a>
+                      </div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
