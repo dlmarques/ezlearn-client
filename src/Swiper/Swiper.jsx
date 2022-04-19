@@ -23,9 +23,10 @@ const Carousel = () => {
         spaceBetween={10}
         slidesPerView={1}
         centeredSlides
-       /*  autoplay={{
+         autoplay={{
           delay: 3000
-        }} */
+        }} 
+        onActiveIndexChange={(e) => console.log(e.activeIndex)}
         loop
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log("slide change")}
@@ -35,34 +36,13 @@ const Carousel = () => {
           <SwipeItem photo={testimonial1} icon={<BsStarFill/>} rating="2" textMessage="EzLearn is the best choice for educational technology, they are very advanced" name="Richie Newt" />
         </SwiperSlide>
         <SwiperSlide className="swiper-slide">
-          <div className="swipe-item">
-            <div className="icon">
-              <BsCameraVideo />
-            </div>
-            <div className="text-card">
-              <h3>EzLearn can support video lessons</h3>
-            </div>
-          </div>
+        <SwipeItem photo={testimonial3} icon={<BsStarFill/>} rating="2" textMessage="EzLearn is the best choice for educational technology, they are very advanced" name="Richie Newt" />
         </SwiperSlide>
         <SwiperSlide>
-          <div className="swipe-item">
-            <div className="icon">
-              <FiBook />
-            </div>
-            <div className="text-card">
-              <h3>EzLearn can support content for subjects</h3>
-            </div>
-          </div>
+        <SwipeItem photo={testimonial2} icon={<BsStarFill/>} rating="2" textMessage="EzLearn is the best choice for educational technology, they are very advanced" name="Richie Newt" />
         </SwiperSlide>
         <SwiperSlide>
-          <div className="swipe-item">
-            <div className="icon">
-              <BsPeople />
-            </div>
-            <div className="text-card">
-              <h3>EzLearn allow to do live works with your classmates</h3>
-            </div>
-          </div>
+        <SwipeItem photo={testimonial4} icon={<BsStarFill/>} rating="2" textMessage="EzLearn is the best choice for educational technology, they are very advanced" name="Richie Newt" />
         </SwiperSlide>
       </Swiper>
     </div>
