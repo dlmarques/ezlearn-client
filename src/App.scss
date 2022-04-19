@@ -731,6 +731,29 @@ header {
         }
       }
     }
+    .testimonials-container{
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+      padding-top: 100px;
+
+      h1{
+        text-align: center;
+        font-size: 50px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #000b53;
+        transition: all .3s ease-in-out;
+      }
+      h3{
+        text-align: center;
+        font-size: 25px;
+        font-weight: 300;
+        color: #000b53;
+        margin-top: -10px;
+        transition: all .3s ease-in-out;
+      }
+    }
   }
 }
 

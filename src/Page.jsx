@@ -15,10 +15,10 @@ import mix from "./img/mix.png";
 import { AiOutlineUser } from "react-icons/ai";
 import { BsCameraVideo } from "react-icons/bs";
 import { BiMessageDetail, BiWorld } from "react-icons/bi";
-import {ImLinkedin2} from "react-icons/im"
-import { FaHandshake, FaRegHandshake, FaLinkedinIn } from "react-icons/fa";
+import {FaRegHandshake, FaLinkedinIn } from "react-icons/fa";
 import { FiBook } from "react-icons/fi";
 import { BsPeople } from "react-icons/bs";
+import Carousel from "./Swiper/Swiper";
 
 const Page = () => {
   const prevScrollY = useRef(0);
@@ -236,6 +236,13 @@ const Page = () => {
                       </div>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div className="testimonials-container">
+              <h1>Testimonials</h1>
+              <h3>5000+ happy clients all around the world</h3>
+              <div className="swiper-container">
+              <Carousel/>
               </div>
             </div>
           </section>
