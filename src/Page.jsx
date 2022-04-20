@@ -239,8 +239,8 @@ const Page = () => {
               </div>
             </div>
             <div className="testimonials-container">
-              <h1>Testimonials</h1>
-              <h3>5000+ happy clients all around the world</h3>
+              <h1 id="title">Testimonials</h1>
+              <h3 id="subtitle">5000+ happy clients all around the world</h3>
               <div className="swiper-container">
               <Carousel/>
               </div>

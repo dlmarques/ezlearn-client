@@ -7,12 +7,18 @@ const SwipeItem = ({photo, icon, rating, textMessage, name}) => {
         <div className="top-testimonial">
         <img src={photo} alt="" />
         <span>
-            {icon} {icon} {icon} {icon} {icon}
+            {/* { rating === 1 ? icon ? 
+              rating === 2 ? (icon, icon) ? 
+             rating === 3 ? (icon, icon, icon) ? 
+             rating === 4 ? (icon, icon, icon, icon) ? 
+             rating === 5 ? (icon, icon, icon, icon, icon) 
+             : null
+            } */}
         </span>
+        <h2 id="name">{name}</h2>
         </div>
         <div className="bottom-testimonial">
         <h3>{textMessage}</h3>
-        <h3 id="name">{name}</h3>
         </div>
       </div>
     </>

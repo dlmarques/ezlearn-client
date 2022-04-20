@@ -4,7 +4,7 @@ import SwiperCore, {Autoplay} from "swiper";
 import { Navigation, Scrollbar, A11y } from "swiper";
 import { BsCameraVideo , BsStarFill } from "react-icons/bs";
 import { FiBook } from "react-icons/fi";
-import { BsPeople } from "react-icons/bs";
+import { BsPeople, BsFillChatQuoteFill } from "react-icons/bs";
 import testimonial1 from "../img/testimonial1.jpg"
 import testimonial2 from "../img/testimonial2.jpg"
 import testimonial3 from "../img/testimonial3.jpg"
@@ -23,9 +23,9 @@ const Carousel = () => {
         spaceBetween={10}
         slidesPerView={1}
         centeredSlides
-         autoplay={{
+         /* autoplay={{
           delay: 3000
-        }} 
+        }}  */
         onActiveIndexChange={(e) => console.log(e.activeIndex)}
         loop
         onSwiper={(swiper) => console.log(swiper)}
@@ -33,7 +33,7 @@ const Carousel = () => {
         className="swiper-wrapper"
       >
         <SwiperSlide className="swiper-slide">
-          <SwipeItem photo={testimonial1} icon={<BsStarFill/>} rating="2" textMessage="EzLearn is the best choice for educational technology, they are very advanced" name="Richie Newt" />
+          <SwipeItem quote={<BsFillChatQuoteFill/>} photo={testimonial1} icon={<BsStarFill/>} rating="2" textMessage="EzLearn is the best choice for educational technology, they are very advanced" name="Richie Newt" />
         </SwiperSlide>
         <SwiperSlide className="swiper-slide">
         <SwipeItem photo={testimonial3} icon={<BsStarFill/>} rating="2" textMessage="EzLearn is the best choice for educational technology, they are very advanced" name="Richie Newt" />
