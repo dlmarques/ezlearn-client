@@ -755,6 +755,29 @@ header {
       }
     }
   }
+  #contact{
+    .parallax {
+      background: url("../assets/images/bck9.jpg");
+      min-height: 650px;
+      width: 100vw;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+
+      h1 {
+        text-align: center;
+        font-size: 50px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #000b53;
+      }
+    }
+  }
 }
 
 @keyframes tilt-shaking {

@@ -246,6 +246,14 @@ const Page = () => {
               </div>
             </div>
           </section>
+          <section id="contact">
+              <div className="parallax">
+                <h1>Contact us</h1>
+                <div className="contact-container">
+                
+                </div>
+              </div>
+          </section>
         </div>
       </div>
     </>

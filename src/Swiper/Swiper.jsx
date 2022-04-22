@@ -12,6 +12,7 @@ import testimonial4 from "../img/testimonial4.jpg"
 import "swiper/scss";
 import "./slider.scss";
 import 'swiper/css/autoplay';
+import 'swiper/scss/navigation';
 import SwipeItem from "./SwipeItem";
 
 const Carousel = () => {
@@ -23,9 +24,10 @@ const Carousel = () => {
         spaceBetween={10}
         slidesPerView={1}
         centeredSlides
-         /* autoplay={{
+          autoplay={{
           delay: 3000
-        }}  */
+        }} 
+        navigation
         onActiveIndexChange={(e) => console.log(e.activeIndex)}
         loop
         onSwiper={(swiper) => console.log(swiper)}
@@ -33,16 +35,16 @@ const Carousel = () => {
         className="swiper-wrapper"
       >
         <SwiperSlide className="swiper-slide">
-          <SwipeItem quote={<BsFillChatQuoteFill/>} photo={testimonial1} icon={<BsStarFill/>} rating="2" textMessage="EzLearn is the best choice for educational technology, they are very advanced" name="Richie Newt" />
+          <SwipeItem quote={<BsFillChatQuoteFill/>} photo={testimonial1} icon={<BsStarFill/>} rating="4" textMessage="EzLearn is the best choice for educational technology, they are very advanced" name="Richie Newt" />
         </SwiperSlide>
         <SwiperSlide className="swiper-slide">
-        <SwipeItem photo={testimonial3} icon={<BsStarFill/>} rating="2" textMessage="EzLearn is the best choice for educational technology, they are very advanced" name="Richie Newt" />
+        <SwipeItem photo={testimonial3} icon={<BsStarFill/>} rating="5" textMessage="EzLearn is the best choice for educational technology, they are very advanced" name="Richie Newt" />
         </SwiperSlide>
         <SwiperSlide>
-        <SwipeItem photo={testimonial2} icon={<BsStarFill/>} rating="2" textMessage="EzLearn is the best choice for educational technology, they are very advanced" name="Richie Newt" />
+        <SwipeItem photo={testimonial2} icon={<BsStarFill/>} rating="3" textMessage="EzLearn is the best choice for educational technology, they are very advanced" name="Richie Newt" />
         </SwiperSlide>
         <SwiperSlide>
-        <SwipeItem photo={testimonial4} icon={<BsStarFill/>} rating="2" textMessage="EzLearn is the best choice for educational technology, they are very advanced" name="Richie Newt" />
+        <SwipeItem photo={testimonial4} icon={<BsStarFill/>} rating="5" textMessage="EzLearn is the best choice for educational technology, they are very advanced" name="Richie Newt" />
         </SwiperSlide>
       </Swiper>
     </div>
