@@ -13,7 +13,7 @@
 
   .swiper-button-prev {
     left: 100px;
-
+    color: #000b53;
     @media (max-width: 1065px) {
       left: 50px;
     }
@@ -28,7 +28,7 @@
 
   .swiper-button-next {
     right: 100px;
-
+    color: #000b53;
     @media (max-width: 1065px) {
       right: 50px;
     }
@@ -102,5 +102,9 @@
     font-size: 20px;
     font-weight: 300;
     color: #fff;
+
+    @media (max-width: 400px) {
+      font-size: 16px;
+    }
   }
 }

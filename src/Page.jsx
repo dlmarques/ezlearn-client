@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./App.scss";
 import { HiOutlineMenu } from "react-icons/hi";
 import man from "./img/man.png";
@@ -7,18 +7,24 @@ import target from "./img/target.png";
 import connect from "./img/connect.png";
 import logo from "./img/logo.png";
 import logoActive from "./img/logo-active.png";
-import team1 from "./img/team1.png"
-import team2 from "./img/team2.png"
-import team3 from "./img/team3.png"
+import footerlogo from "./img/footerlogo.png"
+import team1 from "./img/team1.png";
+import team2 from "./img/team2.png";
+import team3 from "./img/team3.png";
 import MenuMobile from "./MenuMobile/MenuMobile";
 import mix from "./img/mix.png";
-import { AiOutlineUser } from "react-icons/ai";
-import { BsCameraVideo } from "react-icons/bs";
+import { AiOutlineUser, AiOutlineGooglePlus } from "react-icons/ai";
+import { BsCameraVideo, BsTelephoneFill, BsInstagram } from "react-icons/bs";
 import { BiMessageDetail, BiWorld } from "react-icons/bi";
-import {FaRegHandshake, FaLinkedinIn } from "react-icons/fa";
+import { FaRegHandshake, FaLinkedinIn } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 import { FiBook } from "react-icons/fi";
 import { BsPeople } from "react-icons/bs";
+import { ImHome, ImWhatsapp, ImTwitter } from "react-icons/im";
 import Carousel from "./Swiper/Swiper";
+import Map from "./Map";
+
+
 
 const Page = () => {
   const prevScrollY = useRef(0);
@@ -49,7 +55,7 @@ const Page = () => {
                 <a href="#ezlearn">EzLearn</a>
                 <a href="#services">Services</a>
                 <a href="#about">About</a>
-                <a href="">Contact</a>
+                <a href="">Get in touch</a>
               </div>
               <div className="menu">
                 <a href="" id="platform">
@@ -173,48 +179,54 @@ const Page = () => {
                       sed, fugit adipisci, perspiciatis ratione eos. Quas, qui?
                     </h3>
                   </div>
-                </div>
-              </div>
-              <div className="bottom">
-                <div className="wrapper"></div>
-                <div className="icons">
+                  <div className="icons">
                   <span>
                     <AiOutlineUser />
-                    <div className="text">
+                    <div className="text-icons">
                       <h3>30k</h3>
                       <p>Total Users</p>
                     </div>
                   </span>
                   <span>
                     <BiWorld />
-                    <div className="text">
+                    <div className="text-icons">
                       <h3>90+</h3>
                       <p>Countries</p>
                     </div>
                   </span>
                   <span>
                     <FaRegHandshake />
-                    <div className="text">
+                    <div className="text-icons">
                       <h3>95%</h3>
                       <p>Satisfaction</p>
                     </div>
                   </span>
                 </div>
+                </div>
+                
+              </div>
+              <div className="bottom">
+                <div className="wrapper"></div>
               </div>
             </div>
             <div className="team-container">
               <h1>Expert Team Members</h1>
-              <h3>Our team of creative programmers, marketing experts and members. We are to be doing what we love.</h3>
+              <h3>
+                Our team of creative programmers, marketing experts and members.
+                We are to be doing what we love.
+              </h3>
               <div className="team-box">
                 <div className="item-box">
-                <img src={team1} alt="" id="team-pic" />
-                <div className="item-text">
-                  <h2>Daniel Shelach</h2>
-                  <h3>Chief Executive Officer</h3>
-                  <div className="icons">
-                      <a href="" id="icon-team"><FaLinkedinIn/></a>
-                      </div>
-                </div>
+                  <img src={team1} alt="" id="team-pic" />
+                  <div className="item-text">
+                    <h2>Daniel Shelach</h2>
+                    <h3>Chief Executive Officer</h3>
+                    <div className="icons">
+                      <a href="" id="icon-team">
+                        <FaLinkedinIn />
+                      </a>
+                    </div>
+                  </div>
                 </div>
                 <div className="item-box">
                   <img src={team2} alt="" id="team-pic" />
@@ -222,8 +234,10 @@ const Page = () => {
                     <h2>Bernarda Saffron</h2>
                     <h3>Growth Marketer</h3>
                     <div className="icons">
-                      <a href="" id="icon-team"><FaLinkedinIn/></a>
-                      </div>
+                      <a href="" id="icon-team">
+                        <FaLinkedinIn />
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <div className="item-box">
@@ -232,8 +246,10 @@ const Page = () => {
                     <h2>Ryan Beau</h2>
                     <h3>Web Developer</h3>
                     <div className="icons">
-                      <a href="" id="icon-team"><FaLinkedinIn/></a>
-                      </div>
+                      <a href="" id="icon-team">
+                        <FaLinkedinIn />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -242,18 +258,111 @@ const Page = () => {
               <h1 id="title">Testimonials</h1>
               <h3 id="subtitle">5000+ happy clients all around the world</h3>
               <div className="swiper-container">
-              <Carousel/>
+                <Carousel />
               </div>
             </div>
           </section>
           <section id="contact">
-              <div className="parallax">
-                <h1>Contact us</h1>
-                <div className="contact-container">
-                
+            <div className="parallax">
+              <h1>Get in touch</h1>
+              <p id="subtitle">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Laborum obcaecati dignissimos quae quo ad iste ipsum officiis
+                deleniti asperiores sit.
+              </p>
+              <div className="contact-container">
+                <div className="top">
+                  <div className="contact-card">
+                    <span className="item-contact">
+                      <span className="bck-icon">
+                        <ImHome />
+                      </span>
+                      <div className="text-contact">
+                        <p>3916 Rosewood Court</p>
+                        <p>3916 Rosewood Court</p>
+                      </div>
+                    </span>
+                  </div>
+                  <div className="contact-card">
+                    <span className="item-contact">
+                      <span className="bck-icon">
+                        <BsTelephoneFill />
+                      </span>
+                      <div className="text-contact">
+                        <p>507-231-8820</p>
+                        <p>507-231-8820</p>
+                      </div>
+                    </span>
+                  </div>
+                  <div className="contact-card">
+                    <span className="item-contact">
+                      <span className="bck-icon">
+                        <MdEmail />
+                      </span>
+                      <div className="text-contact">
+                        <p>info@example.com</p>
+                        <p>job@example.com</p>
+                      </div>
+                    </span>
+                  </div>
+                </div>
+                <div className="bottom">
+                  <div className="left">
+                    <Map/>
+                  </div>
+                  <div className="right">
+                    <form action="">
+                      <input type="text" placeholder="Your Name" />
+                      <input type="email" placeholder="Email" />
+                      <input type="tel" placeholder="Phone Number" />
+                      <input type="text" placeholder="Message" id="message" />
+                      <input type="submit" id="submit" value="Submit" />
+                    </form>
+                  </div>
                 </div>
               </div>
+            </div>
           </section>
+          <footer>
+            <div className="footer-content">
+              <div className="left">
+                <img src={footerlogo} alt="" />
+                <p>
+                  EzLearn is a frontend project to e-learning platform,
+                  adaptable to any company{" "}
+                </p>
+                <div className="icons">
+                  <span>
+                    <ImWhatsapp />
+                  </span>
+                  <span>
+                    <ImTwitter />
+                  </span>
+                  <span>
+                    <BsInstagram />
+                  </span>
+                  <span>
+                    <AiOutlineGooglePlus />
+                  </span>
+                  <span>
+                    <FaLinkedinIn />
+                  </span>
+                </div>
+              </div>
+              <div className="right">
+                <h1>Subscribe to our newsletter!</h1>
+                <h3>Do not miss any news through our newsletter</h3>
+                <form action="submit">
+                  <input type="email" name="" id="" placeholder="Email" />
+                </form>
+              </div>
+            </div>
+            <div className="footer-bottom">
+              <p id="copy">
+                copyright &copy;2022 <a href="https://www.dlmarques.com/" target="_blank">dlmarques</a>
+              </p>
+            </div>
+          </footer>
         </div>
       </div>
     </>
