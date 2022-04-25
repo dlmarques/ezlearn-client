@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import "./App.scss";
 import { HiOutlineMenu } from "react-icons/hi";
 import man from "./img/man.png";
@@ -55,7 +55,7 @@ const Page = () => {
                 <a href="#ezlearn">EzLearn</a>
                 <a href="#services">Services</a>
                 <a href="#about">About</a>
-                <a href="">Get in touch</a>
+                <a href="#contact">Contact</a>
               </div>
               <div className="menu">
                 <a href="" id="platform">
