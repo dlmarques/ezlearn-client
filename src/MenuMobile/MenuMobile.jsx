@@ -7,10 +7,10 @@ const MenuMobile = ({setOpenMobile, openMobile}) => {
     <div className={openMobile ? 'mobile-container' : 'mobile-container inactive'}>
       <IoClose onClick={() => setOpenMobile(false) }/>
       <div className="links">
-        <a href="#">EzLearn</a>
-        <a href="#">Services</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <a href="#ezlearn">EzLearn</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
         <a href="#">Go to Platform</a>
       </div>
 
