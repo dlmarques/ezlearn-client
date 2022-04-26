@@ -76,7 +76,7 @@ const Page = () => {
                 onClick={() => setOpenMobile(true)}
               />
             )}
-            {openMobile ? <MenuMobile setOpenMobile={setOpenMobile} /> : null}
+            <MenuMobile openMobile={openMobile} setOpenMobile={setOpenMobile}/>
           </div>
         </header>
         <div className="content" onScroll={positionScroll}>

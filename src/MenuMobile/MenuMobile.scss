@@ -1,9 +1,17 @@
+.inactive{
+  position: absolute;
+  transform: translateX(-100vw);
+  transition: all 1s ease-in-out;
+}
+
 .mobile-container {
   width: 100vw;
   height: 100vh;
   background-color: #000b53;
   z-index: 99;
   position: absolute;
+  left: 0;
+   transition: all 1s ease-in-out;
 
   svg{
       position: absolute;
@@ -23,6 +31,7 @@
     align-items: center;
     gap: 10px;
     a {
+      text-decoration: none;
       position: relative;
       display: inline-block;
       font-size: 2em;

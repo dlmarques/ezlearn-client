@@ -2,9 +2,9 @@ import React from 'react'
 import "./MenuMobile.scss"
 import {IoClose} from "react-icons/io5"
 
-const MenuMobile = ({setOpenMobile}) => {
+const MenuMobile = ({setOpenMobile, openMobile}) => {
   return (
-    <div className='mobile-container'>
+    <div className={openMobile ? 'mobile-container' : 'mobile-container inactive'}>
       <IoClose onClick={() => setOpenMobile(false) }/>
       <div className="links">
         <a href="#">EzLearn</a>
