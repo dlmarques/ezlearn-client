@@ -7,7 +7,7 @@ import target from "./img/target.png";
 import connect from "./img/connect.png";
 import logo from "./img/logo.png";
 import logoActive from "./img/logo-active.png";
-import footerlogo from "./img/footerlogo.png"
+import footerlogo from "./img/footerlogo.png";
 import team1 from "./img/team1.png";
 import team2 from "./img/team2.png";
 import team3 from "./img/team3.png";
@@ -21,15 +21,34 @@ import { MdEmail } from "react-icons/md";
 import { FiBook } from "react-icons/fi";
 import { BsPeople } from "react-icons/bs";
 import { ImHome, ImWhatsapp, ImTwitter } from "react-icons/im";
+import {HiOutlineMail, HiOutlineLockClosed} from "react-icons/hi"
 import Carousel from "./Swiper/Swiper";
 import Map from "./Map";
-
-
+import { Modal, Button, Text, Input, Row, Checkbox } from "@nextui-org/react";
+import Login from "./AuthPages/Login/Login";
+import Register from "./AuthPages/Register/Register";
 
 const Page = () => {
   const prevScrollY = useRef(0);
   const [openMobile, setOpenMobile] = useState(false);
   const [changeColor, setChangeColor] = useState(false);
+  const [logInVisible, setLogInVisible] = useState(false);
+  const [registerVisible, setRegisterVisible] = useState(false);
+
+  const handlerLogin = () => setLogInVisible(true);
+  const handlerRegister = () => {
+    setRegisterVisible(true)
+  }
+
+  const closeHandlerLogin = () => {
+    setLogInVisible(false);
+    console.log("closed");
+  };
+
+  const closeHandlerRegister = () => {
+    setRegisterVisible(false);
+    console.log("closed");
+  };
 
   const positionScroll = (e) => {
     const currentScrollY = e.target.scrollTop;
@@ -58,10 +77,15 @@ const Page = () => {
                 <a href="#contact">Contact</a>
               </div>
               <div className="menu">
-                <a href="" id="platform">
-                  Go to Platform
-                </a>
-              </div>
+                <button id="platform" onClick={handlerRegister}>
+                  Register
+                </button>
+                <button id="platform" onClick={handlerLogin}>
+                  Log in
+                </button>
+              </div> 
+              <Register registerVisible={registerVisible} closeHandler={closeHandlerRegister}/>
+               <Login logInVisible={logInVisible} closeHandler={closeHandlerLogin} handlerRegister={handlerRegister} registerVisible={registerVisible} closeHandlerRegister={closeHandlerRegister}/>
             </nav>
           </div>
           <div className={changeColor ? "menu-mobile-active" : "menu-mobile"}>
@@ -76,7 +100,7 @@ const Page = () => {
                 onClick={() => setOpenMobile(true)}
               />
             )}
-            <MenuMobile openMobile={openMobile} setOpenMobile={setOpenMobile}/>
+            <MenuMobile openMobile={openMobile} setOpenMobile={setOpenMobile} />
           </div>
         </header>
         <div className="content" onScroll={positionScroll}>
@@ -180,30 +204,29 @@ const Page = () => {
                     </h3>
                   </div>
                   <div className="icons">
-                  <span>
-                    <AiOutlineUser />
-                    <div className="text-icons">
-                      <h3>30k</h3>
-                      <p>Total Users</p>
-                    </div>
-                  </span>
-                  <span>
-                    <BiWorld />
-                    <div className="text-icons">
-                      <h3>90+</h3>
-                      <p>Countries</p>
-                    </div>
-                  </span>
-                  <span>
-                    <FaRegHandshake />
-                    <div className="text-icons">
-                      <h3>95%</h3>
-                      <p>Satisfaction</p>
-                    </div>
-                  </span>
+                    <span>
+                      <AiOutlineUser />
+                      <div className="text-icons">
+                        <h3>30k</h3>
+                        <p>Total Users</p>
+                      </div>
+                    </span>
+                    <span>
+                      <BiWorld />
+                      <div className="text-icons">
+                        <h3>90+</h3>
+                        <p>Countries</p>
+                      </div>
+                    </span>
+                    <span>
+                      <FaRegHandshake />
+                      <div className="text-icons">
+                        <h3>95%</h3>
+                        <p>Satisfaction</p>
+                      </div>
+                    </span>
+                  </div>
                 </div>
-                </div>
-                
               </div>
               <div className="bottom">
                 <div className="wrapper"></div>
@@ -308,7 +331,7 @@ const Page = () => {
                 </div>
                 <div className="bottom">
                   <div className="left">
-                    <Map/>
+                    <Map />
                   </div>
                   <div className="right">
                     <form action="">
@@ -359,7 +382,10 @@ const Page = () => {
             </div>
             <div className="footer-bottom">
               <p id="copy">
-                copyright &copy;2022 <a href="https://www.dlmarques.com/" target="_blank">dlmarques</a>
+                copyright &copy;2022{" "}
+                <a href="https://www.dlmarques.com/" target="_blank">
+                  dlmarques
+                </a>
               </p>
             </div>
           </footer>

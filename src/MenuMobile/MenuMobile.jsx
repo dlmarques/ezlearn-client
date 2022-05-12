@@ -11,7 +11,7 @@ const MenuMobile = ({setOpenMobile, openMobile}) => {
         <a href="#services">Services</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <a href="#">Go to Platform</a>
+        <a href="/register">Go to Platform</a>
       </div>
 
     </div>

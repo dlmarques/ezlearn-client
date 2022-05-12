@@ -134,7 +134,14 @@ header {
   }
 
   #platform {
+    font-weight: 500;
+    color: #fff;
+    background-color: transparent;
+    border: none;
     transition: all 0.3s ease-in-out;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    font-size: 16px;
     &:hover {
       background-color: #fff;
       padding: 15px;
@@ -227,7 +234,14 @@ header {
   }
 
   #platform {
+    font-weight: 500;
+    color: #000b53;
+    background-color: transparent;
+    border: none;
     transition: all 0.3s ease-in-out;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    font-size: 16px;
     &:hover {
       background-color: #000b53;
       padding: 15px;
