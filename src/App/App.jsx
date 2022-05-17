@@ -8,7 +8,7 @@ const App = () => {
   return (
     <>
     <div className="main-container-app">
-        <div className="sidebar-app"> {/*{!closeSide ? <SideBar setCloseSide={setCloseSide} closeSide={closeSide}/> : <SmallSideBar/> }*/} <SideBar setCloseSide={setCloseSide} closeSide={closeSide}/> </div>
+        <div className="sidebar-app"> <SideBar setCloseSide={setCloseSide} closeSide={closeSide}/> </div>
         <div className="content-container">
             <div className="topbar"> <TopBar setCloseSide={setCloseSide} closeSide={closeSide} /> </div>
             <div className="content"></div>

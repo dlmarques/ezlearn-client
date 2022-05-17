@@ -1,11 +1,11 @@
 .sidebar{
     background-color: #393E46;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
     width: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 10px;
     position: relative;
     transition: width 0.5s linear;
     .top{
@@ -14,6 +14,7 @@
         align-items: center;
         justify-content: space-around;
         transition: all .5s;
+        padding-top: 10px;
         img{
             height: 45px;
             transition: all .5s;
@@ -84,7 +85,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 10px;
     position: relative;
     transition: width 0.5s linear;
     .top{
@@ -93,6 +93,7 @@
         align-items: center;
         justify-content: space-around;
         transition: all .5s;
+        padding-top: 30px;
         img{
             height: 25px;
             transition: all .5s;
