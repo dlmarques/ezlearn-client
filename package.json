@@ -6,6 +6,10 @@
     "@googlemaps/js-api-loader": "^1.14.1",
     "@googlemaps/react-wrapper": "^1.1.32",
     "@nextui-org/react": "^1.0.0-beta.7",
+
+
+    "@react-google-maps/api": "^2.10.2",
+
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",

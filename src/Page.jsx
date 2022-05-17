@@ -331,7 +331,9 @@ const Page = () => {
                 </div>
                 <div className="bottom">
                   <div className="left">
-                    <Map />
+
+                    <Map/>
+
                   </div>
                   <div className="right">
                     <form action="">

@@ -16,7 +16,11 @@ const containerStyle = {
 const Map = () => {
   return (
     <>
-      <LoadScript googleMapsApiKey="AIzaSyANkojt7xT073BbKqV4GUbWU8tumN695pI">
+
+
+
+      <LoadScript googleMapsApiKey="AAIzaSyANkojt7xT073BbKqV4GUbWU8tumN695pI">
+
                       <GoogleMap
                         mapContainerStyle={containerStyle}
                         center={center}
@@ -28,3 +32,5 @@ const Map = () => {
 }
 
 export default Map
+
+
