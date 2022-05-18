@@ -8,6 +8,7 @@ import vector1 from "../../../img/vector1.png"
 import { Button } from '@nextui-org/react';
 
 const SideBar = ({setCloseSide, closeSide}) => {
+
   return (
     <>
     <div className={!closeSide ? "sidebar" : "small-sidebar"}>
