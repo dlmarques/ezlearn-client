@@ -6,6 +6,7 @@ import Register from '../AuthPages/Register/Register'
 import App from '../App/App'
 
 import Page from '../Page'
+import Dashboard from '../App/components/Dashboard/Dashboard'
 const Routes = () => {
   return (
     <>

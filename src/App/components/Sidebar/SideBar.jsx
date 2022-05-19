@@ -18,7 +18,7 @@ const SideBar = ({setCloseSide, closeSide}) => {
       </div>
 
       <div className="links">
-        <a href=""><BiHomeCircle/> {!closeSide ? "Overview" : null}</a>
+        <a href="/app"><BiHomeCircle/> {!closeSide ? "Overview" : null}</a>
         <a href=""><BsCalendarDate/> {!closeSide ? "Calendar" : null}</a>
         <a href=""><BiNotepad/> {!closeSide ? "Courses" : null}</a>
         <a href=""><IoLibraryOutline/> {!closeSide ? "Library" : null}</a>
