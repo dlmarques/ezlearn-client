@@ -1,18 +1,9 @@
 import React, { useState, useRef } from "react";
 import "./App.scss";
+import 'animate.css';
+
+//icons
 import { HiOutlineMenu } from "react-icons/hi";
-import man from "./img/man.png";
-import globe from "./img/globe.png";
-import target from "./img/target.png";
-import connect from "./img/connect.png";
-import logo from "./img/logo.png";
-import logoActive from "./img/logo-active.png";
-import footerlogo from "./img/footerlogo.png";
-import team1 from "./img/team1.png";
-import team2 from "./img/team2.png";
-import team3 from "./img/team3.png";
-import MenuMobile from "./MenuMobile/MenuMobile";
-import mix from "./img/mix.png";
 import { AiOutlineUser, AiOutlineGooglePlus } from "react-icons/ai";
 import { BsCameraVideo, BsTelephoneFill, BsInstagram } from "react-icons/bs";
 import { BiMessageDetail, BiWorld } from "react-icons/bi";
@@ -21,12 +12,18 @@ import { MdEmail } from "react-icons/md";
 import { FiBook } from "react-icons/fi";
 import { BsPeople } from "react-icons/bs";
 import { ImHome, ImWhatsapp, ImTwitter } from "react-icons/im";
-import {HiOutlineMail, HiOutlineLockClosed} from "react-icons/hi"
+
+//components
+import MenuMobile from "./MenuMobile/MenuMobile";
 import Carousel from "./Swiper/Swiper";
 import Map from "./Map";
-import { Modal, Button, Text, Input, Row, Checkbox } from "@nextui-org/react";
-import Login from "./AuthPages/Login/Login";
-import Register from "./AuthPages/Register/Register";
+import Login from "../AuthPages/Login/Login";
+import Register from "../AuthPages/Register/Register";
+
+//images
+import IMAGES from "../../img/images";
+
+import { useAuth } from "../../contexts/AuthContext";
 
 const Page = () => {
   const prevScrollY = useRef(0);
@@ -34,19 +31,20 @@ const Page = () => {
   const [changeColor, setChangeColor] = useState(false);
   const [logInVisible, setLogInVisible] = useState(false);
   const [registerVisible, setRegisterVisible] = useState(false);
+  const [error, setError] = useState("");
+  const { currentUser } = useAuth();
+
+  const handlerRegister = () => setRegisterVisible(true);
+
+  const closeHandlerRegister = () => {
+    setError("");
+    setRegisterVisible(false);
+  };
 
   const handlerLogin = () => setLogInVisible(true);
-  const handlerRegister = () => {
-    setRegisterVisible(true)
-  }
 
   const closeHandlerLogin = () => {
     setLogInVisible(false);
-    console.log("closed");
-  };
-
-  const closeHandlerRegister = () => {
-    setRegisterVisible(false);
     console.log("closed");
   };
 
@@ -68,7 +66,10 @@ const Page = () => {
           <div className={changeColor ? "topbar-active" : "topbar"}>
             <nav>
               <div className="logo">
-                <img src={changeColor ? logoActive : logo} alt="" />
+                <img
+                  src={changeColor ? IMAGES.logoActive : IMAGES.logo}
+                  alt=""
+                />
               </div>
               <div className="links">
                 <a href="#ezlearn">EzLearn</a>
@@ -77,15 +78,34 @@ const Page = () => {
                 <a href="#contact">Contact</a>
               </div>
               <div className="menu">
-                <button id="platform" onClick={handlerRegister}>
-                  Register
-                </button>
-                <button id="platform" onClick={handlerLogin}>
-                  Log in
-                </button>
-              </div> 
-              <Register registerVisible={registerVisible} closeHandler={closeHandlerRegister}/>
-               <Login logInVisible={logInVisible} closeHandler={closeHandlerLogin} handlerRegister={handlerRegister} registerVisible={registerVisible} closeHandlerRegister={closeHandlerRegister}/>
+                {currentUser ? null : (
+                  <button id="platform" onClick={handlerRegister}>
+                    Register
+                  </button>
+                )}
+                {currentUser ? (
+                  <a href="/app">
+                    <button id="platform">Open App</button>
+                  </a>
+                ) : (
+                  <button id="platform" onClick={handlerLogin}>
+                    Log in
+                  </button>
+                )}
+              </div>
+              <Register
+                registerVisible={registerVisible}
+                closeHandler={closeHandlerRegister}
+                error={error}
+                setError={setError}
+              />
+              <Login
+                logInVisible={logInVisible}
+                closeHandler={closeHandlerLogin}
+                handlerRegister={handlerRegister}
+                registerVisible={registerVisible}
+                closeHandlerRegister={closeHandlerRegister}
+              />
             </nav>
           </div>
           <div className={changeColor ? "menu-mobile-active" : "menu-mobile"}>
@@ -116,7 +136,7 @@ const Page = () => {
               </a>
             </div>
 
-            <img src={man} alt="" />
+            <img src={IMAGES.man} alt="" />
           </section>
           <section id="ezlearn">
             <div className="title">
@@ -129,15 +149,15 @@ const Page = () => {
 
             <div className="something-container" on>
               <div className="item">
-                <img src={globe} alt="" />
+                <img src={IMAGES.globe} alt="" />
                 <h3>Learn anywhere</h3>
               </div>
               <div className="item">
-                <img src={target} alt="" />
+                <img src={IMAGES.target} alt="" />
                 <h3>Achieve goals</h3>
               </div>
               <div className="item">
-                <img src={connect} alt="" />
+                <img src={IMAGES.connect} alt="" />
                 <h3>Meet people</h3>
               </div>
             </div>
@@ -190,7 +210,7 @@ const Page = () => {
           <section id="about">
             <div className="about-container">
               <div className="top">
-                <img src={mix} alt="" />
+                <img src={IMAGES.mix} alt="" />
                 <div className="about-text">
                   <div className="title">
                     <h1>About EzLearn</h1>
@@ -240,7 +260,7 @@ const Page = () => {
               </h3>
               <div className="team-box">
                 <div className="item-box">
-                  <img src={team1} alt="" id="team-pic" />
+                  <img src={IMAGES.team1} alt="" id="team-pic" />
                   <div className="item-text">
                     <h2>Daniel Shelach</h2>
                     <h3>Chief Executive Officer</h3>
@@ -252,7 +272,7 @@ const Page = () => {
                   </div>
                 </div>
                 <div className="item-box">
-                  <img src={team2} alt="" id="team-pic" />
+                  <img src={IMAGES.team2} alt="" id="team-pic" />
                   <div className="item-text">
                     <h2>Bernarda Saffron</h2>
                     <h3>Growth Marketer</h3>
@@ -264,7 +284,7 @@ const Page = () => {
                   </div>
                 </div>
                 <div className="item-box">
-                  <img src={team3} alt="" id="team-pic" />
+                  <img src={IMAGES.team3} alt="" id="team-pic" />
                   <div className="item-text">
                     <h2>Ryan Beau</h2>
                     <h3>Web Developer</h3>
@@ -331,9 +351,7 @@ const Page = () => {
                 </div>
                 <div className="bottom">
                   <div className="left">
-
-                    <Map/>
-
+                    <Map />
                   </div>
                   <div className="right">
                     <form action="">
@@ -351,7 +369,7 @@ const Page = () => {
           <footer>
             <div className="footer-content">
               <div className="left">
-                <img src={footerlogo} alt="" />
+                <img src={IMAGES.footerLogo} alt="" />
                 <p>
                   EzLearn is a frontend project to e-learning platform,
                   adaptable to any company{" "}

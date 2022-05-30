@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Container, Grid, Image, Text } from "@nextui-org/react";
-import learn from "../../../../img/learn.png"
+import learn from "../../../../../img/learn.png"
 
 const WelcomeCard = () => {
   return (

@@ -1,14 +1,15 @@
 import React from 'react'
 import '../../styles/sidebar.scss'
-import logo from "../../../img/logo-app.png"
+import logo from "../../../../img/logo-app.png"
 import { IoMenu, IoSettingsOutline, IoLibraryOutline } from 'react-icons/io5'
 import { BiHomeCircle, BiLogOut, BiNotepad } from 'react-icons/bi'
 import { BsCalendarDate, BsStar } from 'react-icons/bs'
-import vector1 from "../../../img/vector1.png"
+import vector1 from "../../../../img/vector1.png"
 import { Button } from '@nextui-org/react';
+import { useAuth } from '../../../../contexts/AuthContext'
 
 const SideBar = ({setCloseSide, closeSide}) => {
-
+  const {logout} = useAuth();
   return (
     <>
     <div className={!closeSide ? "sidebar" : "small-sidebar"}>
@@ -33,7 +34,7 @@ const SideBar = ({setCloseSide, closeSide}) => {
         <Button css={{backgroundColor: "#00ADB5", fontWeight: "300"}}>Upgrade Now</Button>
         </>
        :
-          <BiLogOut/>
+          <BiLogOut onClick={logout}/>
       }
       </div>
     </div>

@@ -5,12 +5,12 @@ import { Navigation, Scrollbar, A11y } from "swiper";
 import { BsCameraVideo , BsStarFill } from "react-icons/bs";
 import { FiBook } from "react-icons/fi";
 import { BsPeople, BsFillChatQuoteFill } from "react-icons/bs";
-import testimonial1 from "../img/testimonial1.jpg"
-import testimonial2 from "../img/testimonial2.jpg"
-import testimonial3 from "../img/testimonial3.jpg"
-import testimonial4 from "../img/testimonial4.jpg"
+import testimonial1 from "../../../img/testimonial1.jpg"
+import testimonial2 from "../../../img/testimonial2.jpg"
+import testimonial3 from "../../../img/testimonial3.jpg"
+import testimonial4 from "../../../img/testimonial4.jpg"
 import "swiper/scss";
-import "./slider.scss";
+import "./Swiper.scss"
 import 'swiper/css/autoplay';
 import 'swiper/scss/navigation';
 import SwipeItem from "./SwipeItem";
@@ -28,10 +28,7 @@ const Carousel = () => {
           delay: 3000
         }} 
         navigation
-        onActiveIndexChange={(e) => console.log(e.activeIndex)}
         loop
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
         className="swiper-wrapper"
       >
         <SwiperSlide className="swiper-slide">

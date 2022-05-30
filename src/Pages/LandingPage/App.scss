@@ -22,7 +22,7 @@ body {
 }
 
 header {
-  background: url("../assets/images/bck5.png");
+  background: url("../../../assets/images/bck5.png");
 }
 
 .menu-mobile {
@@ -264,7 +264,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background: url("../assets/images/bck5.png");
+    background: url("../../../assets/images/bck5.png");
     border-bottom-right-radius: 100% 900px;
     border-bottom-left-radius: 0;
     -webkit-box-shadow: 9px 6px 25px -12px rgba(0, 0, 0, 0.329);
@@ -484,7 +484,7 @@ header {
     justify-content: center;
     margin-top: 100px;
     .parallax {
-      background: url("../assets/images/bck9.jpg");
+      background: url("../../../assets/images/bck9.jpg");
       min-height: 650px;
       width: 100vw;
       background-attachment: fixed;
@@ -885,7 +885,7 @@ header {
   }
   #contact {
     .parallax {
-      background: url("../assets/images/bck9.jpg");
+      background: url("../../../assets/images/bck9.jpg");
       min-height: 1200px;
       width: 100vw;
       background-attachment: fixed;

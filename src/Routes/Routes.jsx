@@ -1,27 +1,27 @@
-import React from 'react'
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import App from "../Pages/App/App";
+import Page from "../Pages/LandingPage/Page";
+import { AuthProvider } from "../contexts/AuthContext";
+import PrivateRoute from "./PrivateRoute";
 
-import Register from '../AuthPages/Register/Register'
-
-import App from '../App/App'
-
-import Page from '../Page'
-import Dashboard from '../App/components/Dashboard/Dashboard'
 const Routes = () => {
   return (
     <>
-    <Router>
-        <Switch>
-            <Route path="/app">
-              <App/>
-            </Route>
+      <Router>
+        <AuthProvider>
+          <Switch>
+            <PrivateRoute path="/app">
+              <App />
+            </PrivateRoute>
             <Route path="/">
-            <Page/>
+              <Page />
             </Route>
-        </Switch>
-    </Router>
+          </Switch>
+        </AuthProvider>
+      </Router>
     </>
-  )
-}
+  );
+};
 
-export default Routes
+export default Routes;
