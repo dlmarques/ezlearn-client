@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { IoMenu, IoNotificationsOutline } from 'react-icons/io5'
 import {HiOutlineSearch} from "react-icons/hi"
 import '../../styles/topbar.scss'
@@ -7,8 +7,10 @@ import Flag from 'react-world-flags'
 import Notifications from './Notifications';
 import ProfileBox from './ProfileBox';
 
-const TopBar = ({setCloseSide, closeSide}) => {
 
+
+const TopBar = ({setCloseSide, closeSide, userData}) => {
+  console.log(userData);
   return (
     <>
     <div className={ closeSide ? "topbar-app-small" : "topbar-app"}>
@@ -21,7 +23,6 @@ const TopBar = ({setCloseSide, closeSide}) => {
       />
       </div>
       <div className="right">
-
       <Popover>
         <Popover.Trigger>
           <Button auto css={{backgroundColor : "transparent"}}>
@@ -53,9 +54,9 @@ const TopBar = ({setCloseSide, closeSide}) => {
       <Popover>
         <Popover.Trigger>
         <User
-              src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-              name="Jane Williams"
-              description="Student"
+              src={userData && userData.avatar}
+              name={userData && userData.firstName + " " + userData.lastName}
+              description={userData && userData.role}
               as="button"
               css={{ 
                 px: 0,

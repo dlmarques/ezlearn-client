@@ -1,0 +1,35 @@
+.nextui-c-eXOOPO.nextui-c-eXOOPO-iNKybL-shadow-true.nextui-c-eXOOPO-gvlAwB-disabled-true.nextui-c-eXOOPO-ccrOPm-underlined-false.nextui-c-eXOOPO-lkBNdM-isTextarea-false.nextui-input-wrapper.nextui-input-wrapper--disabled.nextui-input-wrapper--shadow{
+    background-color: rgba(255, 255, 255, 0.062);
+}
+
+.nextui-c-jeuecp.nextui-input.nextui-input-disabled{
+    color: #fff;
+}
+.nextui-c-hzQjrs.nextui-input-block-label{
+    color: #fff;
+}
+
+label.label input[type="file"] {
+    position: absolute;
+    top: -1000px;
+  }
+  .label {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin: 5px;
+    background: #00ADB5;
+    display: inline-block;
+    width: 116px;
+    margin: auto;
+    margin-top: 20px;
+  }
+  .label:active {
+    background: #9fa1a0;
+  }
+  .label:invalid+span {
+    color: #000000;
+  }
+  .label:valid+span {
+    color: #ffffff;
+  }

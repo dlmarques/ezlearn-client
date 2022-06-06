@@ -21,6 +21,7 @@ const Login = ({ logInVisible, closeHandler }) => {
       await login(email, password);
       history.push('/app')
       closeHandler();
+      window.location.reload(false);
     } catch {
       setError("Failed to log in");
     }

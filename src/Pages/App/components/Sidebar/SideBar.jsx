@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../../styles/sidebar.scss'
 import logo from "../../../../img/logo-app.png"
 import { IoMenu, IoSettingsOutline, IoLibraryOutline } from 'react-icons/io5'
@@ -7,9 +7,17 @@ import { BsCalendarDate, BsStar } from 'react-icons/bs'
 import vector1 from "../../../../img/vector1.png"
 import { Button } from '@nextui-org/react';
 import { useAuth } from '../../../../contexts/AuthContext'
+import UpdateProfile from './components/UpdateProfile'
 
 const SideBar = ({setCloseSide, closeSide}) => {
+  const [openChangeProfile, setOpenChangeProfile] = useState(false);
+  const handler = () => setOpenChangeProfile(true)
   const {logout} = useAuth();
+
+  function closeBox(){
+    setOpenChangeProfile(false)
+    window.location.reload(false);
+  }
   return (
     <>
     <div className={!closeSide ? "sidebar" : "small-sidebar"}>
@@ -24,8 +32,9 @@ const SideBar = ({setCloseSide, closeSide}) => {
         <a href=""><BiNotepad/> {!closeSide ? "Courses" : null}</a>
         <a href=""><IoLibraryOutline/> {!closeSide ? "Library" : null}</a>
         <a href=""><BsStar/> {!closeSide ? "Grades" : null}</a>
-        <a href=""><IoSettingsOutline/> {!closeSide ? "Settings" : null}</a>
+        <a onClick={handler}><IoSettingsOutline/> {!closeSide ? "Settings" : null}</a>
       </div>
+      <UpdateProfile openChangeProfile={openChangeProfile} closeBox={closeBox}/>
       <div className="bottom">
         {!closeSide ?
         <>

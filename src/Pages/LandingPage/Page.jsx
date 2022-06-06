@@ -35,7 +35,7 @@ const Page = () => {
   const { currentUser } = useAuth();
 
   const handlerRegister = () => setRegisterVisible(true);
-
+ 
   const closeHandlerRegister = () => {
     setError("");
     setRegisterVisible(false);
@@ -58,6 +58,7 @@ const Page = () => {
     }
     prevScrollY.current = currentScrollY;
   };
+  
 
   return (
     <>
@@ -102,9 +103,6 @@ const Page = () => {
               <Login
                 logInVisible={logInVisible}
                 closeHandler={closeHandlerLogin}
-                handlerRegister={handlerRegister}
-                registerVisible={registerVisible}
-                closeHandlerRegister={closeHandlerRegister}
               />
             </nav>
           </div>
@@ -131,7 +129,7 @@ const Page = () => {
                 EzLearn is a online platform of e-learning, with the best tools
                 and technologies, adaptable to any institution.
               </p>
-              <a href="" id="discover">
+              <a href="" id="discover" >
                 Discover EZLEARN
               </a>
             </div>

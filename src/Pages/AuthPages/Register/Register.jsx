@@ -1,20 +1,24 @@
 import React, { useState } from "react";
-import { Modal, Button, Text, Input, Row, Card } from "@nextui-org/react";
+import { Modal, Button, Text, Input, Row, Card, Radio } from "@nextui-org/react";
 import {
   HiOutlineMail,
   HiOutlineLockClosed,
   HiOutlineUser,
 } from "react-icons/hi";
+import "./Register.scss"
 import { useAuth } from "../../../contexts/AuthContext";
 import { auth } from "../../../firebase-config";
 import {sendEmailVerification, updateProfile} from "firebase/auth"
 
 
 const Register = ({registerVisible, closeHandler, setError, error}) => {
-  const [registerName, setRegisterName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [username, setUsername] = useState("");
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [registerConfirmPassword, setRegisterConfirmPassword] = useState("");
+  const [role, setRole] = useState("");
   const [loading, setLoading] = useState(false);
   const [finished, setFinished] = useState(false);
   const { signup, logout } = useAuth()
@@ -38,13 +42,16 @@ const Register = ({registerVisible, closeHandler, setError, error}) => {
         setLoading(true)
         await signup(
           registerEmail, 
-          registerPassword);
+          registerPassword,
+          firstName,
+          lastName,
+          role);
          
           await sendEmailVerification(auth.currentUser).catch((err) => 
           console.log(err)
          ) 
          
-         await updateProfile(auth.currentUser, {displayName: registerName }).catch((err) => 
+         await updateProfile(auth.currentUser, {displayName: username }).catch((err) => 
           console.log(err)
          ) 
          await logout();
@@ -66,7 +73,7 @@ const Register = ({registerVisible, closeHandler, setError, error}) => {
   const closeVerifyBox = () => {
       setFinished(false)
   }
-
+  console.log(role);
   return (
     <>
       <Modal closeButton open={registerVisible} onClose={closeHandler}>
@@ -76,6 +83,32 @@ const Register = ({registerVisible, closeHandler, setError, error}) => {
           </Text>
         </Modal.Header>
         <Modal.Body>
+          <Row css={{gap: "10px"}}>
+          <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="lg"
+            placeholder="First Name"
+            type="text"
+            aria-label="username"
+            contentLeft={<HiOutlineUser />}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+           <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="lg"
+            placeholder="Last Name"
+            type="text"
+            aria-label="username"
+            contentLeft={<HiOutlineUser />}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+          </Row>
           <Input
             clearable
             bordered
@@ -86,7 +119,7 @@ const Register = ({registerVisible, closeHandler, setError, error}) => {
             type="text"
             aria-label="username"
             contentLeft={<HiOutlineUser />}
-            onChange={(e) => setRegisterName(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <Input
             clearable
@@ -125,6 +158,11 @@ const Register = ({registerVisible, closeHandler, setError, error}) => {
             contentLeft={<HiOutlineLockClosed />}
             onChange={(e) => setRegisterConfirmPassword(e.target.value) }
           />
+          <select name="" id="select" onChange={(e) => setRole(e.target.value)}>
+            <option hidden selected>Choose your role</option>
+            <option value="Seller">Seller</option>
+            <option value="Student">Student</option>
+          </select>
           <Row justify="space-between">
           { error &&  
             <Card color="error"className="animate__animated animate__shakeX">

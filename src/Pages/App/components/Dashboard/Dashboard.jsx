@@ -5,22 +5,23 @@ import "./Dashboard.scss"
 import CalendarComponent from './components/CalendarComponent';
 import ContainerChart from '../ChartLearning/Container';
 import ContainerActivity from '../ChartActivity/ContainerActivity';
-import ChartActivity from '../ChartActivity/ChartActivity';
 import TasksContainer from '../Tasks/TasksContainer';
 
 
-const Dashboard = () => {
+const Dashboard = ({userData}) => {
   return (
     <>
-    <Grid.Container css={{padding : "0", paddingTop: "50px"}} gap={0} justify="space-around">
+    <Grid.Container css={{padding : "0", paddingTop: "50px", '@xsMax': {
+      width: "200px"
+    }}} gap={0} justify="space-around">
       <Grid >
-        <WelcomeCard/>
+        <WelcomeCard userData={userData}/>
       </Grid>
       <Grid >
         <CalendarComponent/>
       </Grid>
     </Grid.Container>
-    <Grid.Container justify="flex-start">
+    <Grid.Container justify="space-around" css={{ paddingTop: "50px"}}>
       <Grid >
         <ContainerChart/>
       </Grid>
