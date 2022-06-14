@@ -1,146 +1,152 @@
-.sidebar{
-    background-color: #393E46;
-    min-height: 100vh;
-    max-height: 100vh;
-    width: 250px;
+.sidebar {
+  background-color: #393e46;
+  min-height: 100vh;
+  max-height: 100vh;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: width 0.5s linear;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  overflow-x: hidden; 
+  .top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    transition: all 0.5s;
+    padding-top: 10px;
+    img {
+      height: 45px;
+      transition: all 0.5s;
+    }
+    svg {
+      font-size: 30px;
+      color: #00adb5;
+      transition: all 0.5s;
+    }
+  }
+
+  .links {
+    margin-top: 40px;
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
+    transition: all 0.5s;
+
+    a {
+      padding-left: 20px;
+      color: #fff;
+      text-decoration: none;
+      margin: 15px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 20px;
+      color: #eeeeee;
+      transition: all 0.5s;
+      cursor: pointer;
+      &:hover {
+        color: #00adb5;
+      }
+    }
+  }
+
+  .bottom {
+    width: 100%;
+    display: flex;
     align-items: center;
-    position: relative;
-    transition: width 0.5s linear;
-    .top{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        transition: all .5s;
-        padding-top: 10px;
-        img{
-            height: 45px;
-            transition: all .5s;
-       }
-       svg{
-           font-size: 30px;
-           color: #00ADB5;
-           transition: all .5s;
-       }
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    bottom: 50px;
+    transition: all 0.5s linear;
+    img {
+      height: 150px;
+      transition: all 0.5s linear;
     }
 
-    .links{
-        margin-top: 40px;
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        transition: all .5s;
-        
-        a{
-            padding-left: 20px;
-            color: #fff;
-            text-decoration: none;
-            margin: 15px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 20px;
-            color: #EEEEEE;
-            transition: all .5s;
-            cursor: pointer;
-            &:hover{
-                color: #00ADB5;
-            }
-        }
+    h3 {
+      font-weight: 500;
+      text-align: center;
+      color: #eeeeee;
+      transition: all 0.5s linear;
+      span {
+        font-weight: 700;
+        transition: all 0.5s linear;
+      }
     }
-
-    .bottom{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        position: absolute;
-        bottom: 50px;
-        transition: all .5s linear;
-        img{
-            height: 150px;
-            transition: all .5s linear;
-        }
-
-        h3{
-            font-weight: 500;
-            text-align: center;
-            color: #EEEEEE;
-            transition: all .5s linear;
-            span{
-                font-weight: 700;
-                transition: all .5s linear;
-            }
-        }
-    }
+  }
 }
 
-.small-sidebar{
-    background-color: #393E46;
-    height: 100vh;
-    width: 90px;
+.small-sidebar {
+  background-color: #393e46;
+  height: 100vh;
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: width 0.5s linear;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  overflow-x: hidden; 
+  .top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    transition: all 0.5s;
+    padding-top: 30px;
+    img {
+      height: 25px;
+      transition: all 0.5s;
+    }
+  }
+
+  .links {
+    margin-top: 40px;
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
+    transition: all 0.5s;
+    a {
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      margin-top: 35px;
+      font-size: 30px;
+      color: #eeeeee;
+      transition: all 0.5s;
+      &:hover {
+        color: #00adb5;
+      }
+    }
+  }
+
+  .bottom {
+    width: 100%;
+    display: flex;
     align-items: center;
-    position: relative;
-    transition: width 0.5s linear;
-    .top{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        transition: all .5s;
-        padding-top: 30px;
-        img{
-            height: 25px;
-            transition: all .5s;
-       }
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    bottom: 50px;
+    transition: all 0.5s;
+    svg {
+      color: #eeeeee;
+      font-size: 30px;
+      transition: all 0.5s;
+      cursor: pointer;
+      &:hover {
+        color: #00adb5;
+      }
     }
-
-    .links{
-        margin-top: 40px;
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        transition: all .5s;
-        a{
-            text-decoration: none;
-            display: flex;
-            justify-content: center;
-            margin: 0;
-            padding: 0;
-            margin-top: 35px;
-            font-size: 30px;
-            color: #EEEEEE;
-            transition: all .5s;
-            &:hover{
-                color: #00ADB5;
-            }
-        }
-    }
-
-    .bottom{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        position: absolute;
-        bottom: 50px;
-        transition: all .5s;
-        svg{
-            color: #EEEEEE;
-            font-size: 30px;
-            transition: all .5s;
-            cursor: pointer;
-            &:hover{
-                color: #00ADB5;
-            }
-        }
-    }
+  }
 }

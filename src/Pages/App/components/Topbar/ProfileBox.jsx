@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Grid, Row, Text, Modal, Button, Input} from "@nextui-org/react";
+import { Grid, Row, Text} from "@nextui-org/react";
 import {FiUser} from "react-icons/fi"
 import { BsCalendarDate} from 'react-icons/bs'
 import { BiLogOut} from 'react-icons/bi'
@@ -7,7 +7,7 @@ import { IoSettingsOutline} from 'react-icons/io5'
 import {useAuth} from '../../../../contexts/AuthContext'
 
 const ProfileBox = () => {
-    const {currentUser} = useAuth();
+    const {currentUser, logout} = useAuth();
     const username = (currentUser._delegate.displayName);
 
 
@@ -43,7 +43,7 @@ const ProfileBox = () => {
         <Row>
             <Text css={{color: "#eeeeee", display: "flex", alignItems: "center", gap:"5px", fontSize: "20px", paddingLeft: "10px", paddingBottom: "10px",  cursor: "pointer", transition: "all .3s ease" ,'&:hover':{
                 color: "#eeeeeec9"
-            }}}>
+            }}} onClick={logout}>
                 <BiLogOut/>
                 Logout</Text>
         </Row>

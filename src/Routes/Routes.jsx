@@ -11,16 +11,16 @@ const Routes = () => {
     <>
       <Router>
         <AuthProvider>
-          <Switch>
-            <InfoProvider>
-            <PrivateRoute path="/app">
-              <App />
-            </PrivateRoute>
-            </InfoProvider>
-            <Route path="/">
-              <Page />
-            </Route>
-          </Switch>
+          <InfoProvider>
+            <Switch>
+              <PrivateRoute path="/app">
+                <App />
+              </PrivateRoute>
+              <Route path="/">
+                <Page />
+              </Route>
+            </Switch>
+          </InfoProvider>
         </AuthProvider>
       </Router>
     </>

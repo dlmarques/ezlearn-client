@@ -9,7 +9,7 @@ const TasksContainer = () => {
       css={{
         backgroundColor: "#393E46",
         borderRadius: "14px",
-        width: "400px",
+        width: "650px",
         height: "350px"
       }}
     >

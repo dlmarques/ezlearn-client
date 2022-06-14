@@ -4,30 +4,41 @@
     display: flex;
     background-color: #222831;
 
+    .sidebar{
+        z-index: 99;
+    }
+    .topbar{
+        padding: 0 0 0 250px;
+        z-index: 98;
+        transition: width 0.5s linear;
+    }
+    .topbar.active{
+        padding: 0 0 0 90px;
+        transition: width 0.5s linear;
+    }
+
     .content-container.active{
-        width: calc(100vw - 90px);
-        height: 100vh;
+        padding: 80px 0 0 90px;
         .content{
             padding: 90px 0 0 0;
             width: 100%;
             height: calc(100vh - 90px);
-            overflow-y: hidden;
+            overflow-x: hidden;
             }
 
     }
 
     .content-container{
-        width: calc(100vw - 250px);
-        height: 100vh;
-        
-
+        background-color: #222831;
+        width: 100vw;
+        min-height: calc(100vh - 80px);
+        padding-top: 80px;
+        padding: 80px 0 0 250px;
         .content{
             padding: 90px 0 0 0;
             width: 100%;
             height: calc(100vh - 90px);
-            overflow-y: hidden;
-
-           
+            overflow-x: hidden;
         }
     }
 

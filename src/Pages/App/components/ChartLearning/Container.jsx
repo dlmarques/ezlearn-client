@@ -19,7 +19,7 @@ const ContainerChart = () => {
         css={{
           backgroundColor: "#393E46",
           borderRadius: "14px",
-          width: "400px",
+          width: "650px",
         }}
       >
         <Row css={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: "20px" }}>

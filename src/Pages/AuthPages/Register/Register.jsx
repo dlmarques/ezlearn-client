@@ -73,7 +73,7 @@ const Register = ({registerVisible, closeHandler, setError, error}) => {
   const closeVerifyBox = () => {
       setFinished(false)
   }
-  console.log(role);
+
   return (
     <>
       <Modal closeButton open={registerVisible} onClose={closeHandler}>

@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import { auth, db } from "../firebase-config";
+import { auth } from "../firebase-config";
 import { useHistory } from "react-router-dom";
-import {  doc, setDoc } from "firebase/firestore";
-import { updatePassword, reauthenticateWithCredential } from "firebase/auth";
+import { updatePassword, sendPasswordResetEmail } from "firebase/auth";
 
 
 const AuthContext = React.createContext();
@@ -24,19 +23,27 @@ export function AuthProvider({ children }) {
   }
   
   function login(email, password) {
-    return auth.signInWithEmailAndPassword(email, password);
+    return auth.signInWithEmailAndPassword(email, password).then(cred => {
+      localStorage.setItem("id", cred.user.uid)
+    });
   }
   
-/*   const changePassword = (currentPassword, newPassword) => {
-    reauthenticateWithCredential(currentPassword).then(() => {
+   const changePassword = (newPassword) => {
       updatePassword(currentUser, newPassword).then(() => {
-        console.log("success");
+        console.log("success")
       }).catch((error) => {
         console.error(error);
-      });
-    })
+      })
     
-  } */
+  } 
+
+  function sendPasswordReset(email){
+    return auth.sendPasswordResetEmail(email).then(() => {
+      console.log("Password reset sent!");
+    }).catch((error) => {
+      console.error(error);
+    })
+  }
   
   function logout(){
     history.push("/")
@@ -45,12 +52,20 @@ export function AuthProvider({ children }) {
 
  async function addData(uid, firstName, lastName, role){
   try{
-    await setDoc(doc(db, "users", uid), {
-      firstName: firstName,
-      lastName: lastName,
-      role: role,
-      avatar: "https://meiadose.com.pt/wp-content/uploads/2015/04/default-user-avatar.png"
-    });
+    await fetch("http://localhost:3001/api/user/addData", {
+          method: "POST",
+          headers: {
+            'Accept': 'application/json',
+            "Content-Type": "application/json",
+            'Access-Control-Allow-Origin': '*'
+          },
+          body: JSON.stringify({
+            id: uid,
+            firstName: firstName,
+            lastName: lastName,
+            role: role
+          }),
+        })
   }catch(err){
     console.error(err.message)
   }
@@ -72,7 +87,8 @@ export function AuthProvider({ children }) {
     login,
     logout,
     addData,
-    //changePassword
+    changePassword,
+    sendPasswordReset
   };
 
   return (

@@ -33,8 +33,7 @@
     "webpack": "^4.46.0"
   },
   "scripts": {
-    "start:backend": "nodemon index.js",
-    "start:frontend": "react-scripts start",
+    "start": "react-scripts start",
     "build": "GENERATE_SOURCEMAP=false && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

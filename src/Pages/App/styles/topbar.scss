@@ -1,49 +1,48 @@
 .topbar-app{
     background-color: #222831;
     height: 80px;
-    width: calc(100vw - 250px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all .5s;
+    padding: 0 250px 0 0;
+    transition: width 0.5s linear;
     .left{
         padding-left: 50px;
-        transition: all .5s;
+        transition: width 0.5s linear;
         #menu-icon{
             color: #00ADB5;
             font-size: 30px;
-            transition: all .5s;
             padding-left: 20px;
-            transition: all .5s;
+            transition: width 0.5s linear;
         }
         svg{
             color: #00ADB5;
             font-size: 25px;
-            transition: all .5s;
+            transition: width 0.5s linear;
         }
     }
 
     .right{
         display: flex;
         padding-right: 50px;
-        transition: all .5s;
+        transition: width 0.5s linear;
         svg{
             color: #00ADB5;
             font-size: 25px;
-            transition: all .5s;
+            transition: width 0.5s linear;
         }
         .flag{
             height: 12px;
             width: auto;
-            transition: all .5s;
+            transition: width 0.5s linear;
         }
         .flag-box{
             height: 5px;
-            transition: all .5s;
+            transition: width 0.5s linear;
         }
         .nextui-c-fHdWgw.nextui-user-name{
             color: #eeeeee;
-            transition: all .5s;
+            transition: width 0.5s linear;
         }
     }
 
@@ -53,28 +52,27 @@
 .topbar-app-small{
     background-color: #222831;
     height: 80px;
-    width: calc(100vw - 90px);
     display: flex;
+    padding: 0 90px 0 0;
     justify-content: space-between;
     align-items: center;
-    transition: all .5s;
+    transition: width 0.5s linear;
     .left{
         padding-left: 10px;
         display: flex;
         align-items: center;
         gap: 20px;
-        transition: all .5s;
+        transition: width 0.5s linear;
         #menu-icon{
             color: #00ADB5;
             font-size: 30px;
-            transition: all .5s;
             padding-left: 20px;
-            transition: all .5s;
+            transition: width 0.5s linear;
         }
         svg{
             color: #00ADB5;
             font-size: 25px;
-            transition: all .5s;
+            transition: width 0.5s linear;
         }
     }
 
@@ -83,24 +81,24 @@
         align-items: center;
         gap: 10px;
         padding-right: 50px;
-        transition: all .5s;
+        transition: width 0.5s linear;
         svg{
             color: #00ADB5;
             font-size: 25px;
-            transition: all .5s;
+            transition: width 0.5s linear;
         }
         .flag{
             height: 12px;
             width: auto;
-            transition: all .5s;
+            transition: width 0.5s linear;
         }
         .flag-box{
             height: 5px;
-            transition: all .5s;
+            transition: width 0.5s linear;
         }
         .nextui-c-fHdWgw.nextui-user-name{
             color: #eeeeee;
-            transition: all .5s;
+            transition: width 0.5s linear;
         }
     }
 

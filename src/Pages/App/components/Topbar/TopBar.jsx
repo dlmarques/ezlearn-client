@@ -10,7 +10,6 @@ import ProfileBox from './ProfileBox';
 
 
 const TopBar = ({setCloseSide, closeSide, userData}) => {
-  console.log(userData);
   return (
     <>
     <div className={ closeSide ? "topbar-app-small" : "topbar-app"}>

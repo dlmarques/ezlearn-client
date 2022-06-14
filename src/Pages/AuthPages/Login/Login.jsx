@@ -3,12 +3,14 @@ import { Modal, Button, Text, Input, Row, Checkbox, Card } from "@nextui-org/rea
 import { HiOutlineMail, HiOutlineLockClosed } from "react-icons/hi";
 import { useAuth } from "../../../contexts/AuthContext";
 import { Redirect, useHistory } from "react-router-dom";
+import ResetModal from "./components/ResetModal";
 
 const Login = ({ logInVisible, closeHandler }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [resetModal, setResetModal] = useState(false);
   const { login, currentUser } = useAuth();
   const history = useHistory();
 
@@ -26,6 +28,13 @@ const Login = ({ logInVisible, closeHandler }) => {
       setError("Failed to log in");
     }
     setLoading(false);
+  }
+
+  function openReset(){
+    setResetModal(true)
+  }
+  function closeReset(){
+    setResetModal(false)
   }
 
   return (
@@ -71,7 +80,7 @@ const Login = ({ logInVisible, closeHandler }) => {
               <Checkbox>
                 <Text size={14}>Remember me?</Text>
               </Checkbox>
-              <Text size={14}>Forgot Pasword?</Text>
+              <Text size={14} css={{cursor: "pointer"}} onClick={openReset}>Forgot Pasword?</Text>
             </Row>
           </Modal.Body>
           <Modal.Footer>
@@ -83,6 +92,7 @@ const Login = ({ logInVisible, closeHandler }) => {
             </Button>
           </Modal.Footer>
         </Modal>
+        <ResetModal resetModal={resetModal} closeReset={closeReset} />
       
     </>
   );

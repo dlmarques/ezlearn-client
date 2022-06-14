@@ -1,57 +1,30 @@
-.nextui-c-kArxtH{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
+.dashboard-container{
+    width: 100%;
+    height: auto;
+    background-color: #222831;
+    
 
-.nextui-c-kRHeuF-ijmrKq-css{
-    @media (min-width: 1800px){
-        padding-top: 70px;
+    .first-grid{
+        display: flex;
+        justify-content: space-around;
+        padding: 50px 0 0 0;
     }
-}
-.nextui-c-kRHeuF-iiTFIOC-css{
-    padding-left: 20px;
-    gap: 30px;
-    padding-top: 50px;
 
+    .second-grid{
+        padding: 50px 0 30px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+      @media (max-width:1610px){
+           display: flex;
+           flex-wrap: wrap;
+           gap: 20px;
+        }  
 
-  /*   @media (max-width: 1865px) {
-        gap: 20px;
-
-        .nextui-c-fdHeMm-icXOidi-css{
-            width: 300px;
-            .nextui-c-PJLV-ibLJGNI-css{
-                font-size: 1.2rem;
-            }
-        }
-        .nextui-c-fdHeMm-ijWWpjZ-css{
-            width: 450px;
-            height: 370px;
-            .nextui-c-PJLV-ibLJGNI-css{
-                font-size: 1.2rem;
-                height: 70px;
-            }
-            .nextui-c-dfbgCO-igbRuuU-css{
-                display: flex;
-                justify-content: center;
-            }
-        }
-        .nextui-c-fdHeMm-igcoGlx-css{
-            height: 370px;
-            .nextui-c-PJLV-ibLJGNI-css{
-                font-size: 1.2rem;
-            }
-            .nextui-c-PJLV-icIUfWW-css{
-                font-size: .85rem;
-            }
-        }
-        .nextui-c-dfbgCO-idflNR-css{
-            padding-top: 30px;
-        }
-        .nextui-c-dfbgCO-ioTwlk-css{
-            padding-top: 70px;
+        .calendar{
+            display: flex;
+            justify-content: center;
+            margin: auto;
         }
     }
- */
-   
 }

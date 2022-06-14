@@ -5,12 +5,12 @@ import { useInfo } from "../../../../../contexts/InfoContext";
 import "./UpdateProfile.scss";
 
 const UpdateProfile = ({ openChangeProfile, closeBox }) => {
-  const { currentUser } = useAuth();
-  const { getUserInfo, updatePhoto, uploadPhoto } = useInfo();
+  const { currentUser, changePassword, logout } = useAuth();
+  const { getUserInfo, uploadPhoto } = useInfo();
   const [ userPhoto, setUserPhoto] = useState();
   const [ currentPassword, setCurrentPassword] = useState();
   const [ newPassword, setNewPassword] = useState();
-  const [ random, setRandom] = useState();
+  const [ error, setError] = useState();
 
 
   const [userData, setUserData] = useState();
@@ -31,6 +31,21 @@ const UpdateProfile = ({ openChangeProfile, closeBox }) => {
       }
   }
 
+  async function updatePassword(){
+    try{
+      if(currentPassword && newPassword){
+        await changePassword(newPassword);
+        setError()
+        console.log("done");
+        logout()
+      }else{
+        setError("Complete all inputs")
+      }
+    }catch(err){
+      console.error(err);
+      setError()
+    }
+  }
 
   return (
     <>
@@ -50,7 +65,7 @@ const UpdateProfile = ({ openChangeProfile, closeBox }) => {
             src={userData && userData.avatar}
             css={{ margin: "auto", height: "150px", width: "150px" }}
           />
-          <label class="label">
+          <label className="label">
             <input type="file" required onChange={(e) => setUserPhoto(e.target.files[0])} />
             <span>Change Photo</span>
           </label>
@@ -75,9 +90,10 @@ const UpdateProfile = ({ openChangeProfile, closeBox }) => {
             label="New Password"
             onChange={(e) => setNewPassword(e.target.value)}
           />
+           {error && error}
         </Modal.Body>
         <Modal.Footer css={{display: "flex"}}>
-          <Button css={{fontSize: "18px", width: "100%", backgroundColor: "#00ADB5"}}>Save Password</Button>
+          <Button css={{fontSize: "18px", width: "100%", backgroundColor: "#00ADB5"}} onClick={updatePassword}>Save Password</Button>
         </Modal.Footer>
       </Modal>
     </>

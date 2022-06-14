@@ -1,24 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 import Dashboard from "./components/Dashboard/Dashboard";
 import SideBar from "./components/Sidebar/SideBar";
 import TopBar from "./components/Topbar/TopBar";
 import "./styles/app.scss";
 import { useAuth } from "../../contexts/AuthContext";
-import { Button, Input, Modal, Row, Text } from "@nextui-org/react";
+import { Button, Modal, Row, Text } from "@nextui-org/react";
 import { useInfo } from "../../contexts/InfoContext";
+import Calendar from "./components/Calendar/Calendar";
 const App = () => {
+  let { path } = useRouteMatch();
   const [closeSide, setCloseSide] = useState(false);
-  const [width, setWidth] = useState(window.innerWidth);
   const [visible, setVisible] = useState(false);
   const [userData, setUserData] = useState()
   const { currentUser } = useAuth();
   const { getUserInfo } = useInfo();
   const userID = currentUser._delegate.uid;
   const emailVerified = currentUser.emailVerified;
-
+  const width = window.innerWidth;
+  
   useEffect(() => {
-    getUserInfo(userID).then((data) => setUserData(data))
+    const getData = async () => {
+     const res = await getUserInfo(userID)
+      setUserData(res)
+    }
+    getData()
+
     //verify account
     if (emailVerified === false) {
       setVisible(true);
@@ -31,15 +38,13 @@ const App = () => {
     }
   }, width);
 
-
-
   const verify = () => {
     window.location.reload(false);
   };
   
   return (
     <>
-      {!emailVerified === false ? (
+      {emailVerified === false ? (
         <Modal open={visible} width={800} justify="center">
           <Modal.Header>
             <Text b size={28}>
@@ -68,12 +73,7 @@ const App = () => {
               {" "}
               <SideBar setCloseSide={setCloseSide} closeSide={closeSide} />{" "}
             </div>
-            <div
-              className={
-                closeSide ? "content-container active" : "content-container"
-              }
-            >
-              <div className="topbar">
+            <div className={closeSide ? "topbar active" : "topbar"}>
                 {" "}
                 <TopBar
                   setCloseSide={setCloseSide}
@@ -81,13 +81,19 @@ const App = () => {
                   userData={userData && userData}
                 />{" "}
               </div>
-              <div className="content">
+            <div
+              className={
+                closeSide ? "content-container active" : "content-container"
+              }
+            >  
                 <Switch>
-                  <Route path="/app">
+                  <Route exact path={path}>
                     <Dashboard userData={userData}/>
                   </Route>
+                  <Route path={`${path}calendar`}>
+                    <Calendar/>
+                  </Route>
                 </Switch>
-              </div>
             </div>
           </div>
         </>
