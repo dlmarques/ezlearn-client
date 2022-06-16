@@ -1,18 +1,24 @@
-import React from "react";
+import React, {useState, useMemo} from "react";
 import {
   Container,
   Row,
-  Col,
   Text,
-  Grid,
   Popover,
   Button,
+  Dropdown
 } from "@nextui-org/react";
 import ChartLearning from "./ChartLearning";
 import {MdOutlineKeyboardArrowDown} from "react-icons/md"
 import {FaCircle} from "react-icons/fa"
 
 const ContainerChart = () => {
+  const [selected, setSelected] = useState(new Set(["Today"]))
+  
+  const selectedValue = useMemo(
+    () => Array.from(selected).join(", ").replaceAll("_", " "),
+    [selected]
+  )
+
   return (
     <>
       <Container
@@ -32,24 +38,32 @@ const ContainerChart = () => {
           >
             Learning time
           </Text>
-          <Popover >
-            <Popover.Trigger>
-              <Button auto css={{backgroundColor: "transparent", fontSize: "16px"}}>
-                Today <MdOutlineKeyboardArrowDown/>
-              </Button>
-            </Popover.Trigger>
-            <Popover.Content>
-              <Text css={{ p: "$10" }}>
+          <Dropdown >
+            <Dropdown.Button css={{backgroundColor: "transparent", fontSize: "16px"}}>
+              {selectedValue}
+            </Dropdown.Button>
+            <Dropdown.Menu
+            aria-label="Single selection actions"
+            color="secondary"
+            disallowEmptySelection
+            selectionMode="single"
+            selectedKeys={selected}
+            onSelectionChange={setSelected}
+            >
+              <Dropdown.Item key="Today" css={{ p: "$10", cursor: "pointer" }}>
+                Today
+              </Dropdown.Item>
+              <Dropdown.Item key="Last 7 days" css={{ p: "$10", cursor: "pointer" }}>
                 Last 7 days
-              </Text>
-              <Text css={{ p: "$10" }}>
+              </Dropdown.Item>
+              <Dropdown.Item key="Last month" css={{ p: "$10", cursor: "pointer" }}>
                 Last Month
-              </Text>
-              <Text css={{ p: "$10" }}>
+              </Dropdown.Item>
+              <Dropdown.Item key="Last year" css={{ p: "$10", cursor: "pointer" }}>
                 Last Year
-              </Text>
-            </Popover.Content>
-          </Popover>
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </Row>
         <Row css={{ display: "flex", justifyContent: "center" }}>
           <ChartLearning />

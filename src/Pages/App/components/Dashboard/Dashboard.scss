@@ -3,12 +3,15 @@
     min-height: 100vh;
     background-color: #222831;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 50px;
 
     .first-grid{
         width: 100%;
         display: flex;
         justify-content: space-between;
-        padding: 50px 0 0 0;
 
         @media (max-width:1610px){
             justify-content: center;
@@ -17,7 +20,6 @@
 
     .second-grid{
         width: 100%;
-        padding: 50px 0 30px 0;
         display: flex;
         justify-content: space-between;
         gap: 20px;
@@ -46,7 +48,7 @@
     }
     .third-row{
         width: 100%;
-        padding: 20px 0 30px 0;
+        padding: 0 0 30px 0;
         display: flex;
         justify-content: space-between;
         @media (max-width:1110px){

@@ -30,9 +30,9 @@ const TopBar = ({setCloseSide, closeSide, userData}) => {
         </Popover.Trigger>
         <Popover.Content css={{height : "auto", width: "100px", backgroundColor: "#393E46"}}>
           <Container css={{display: "flex", flexDirection: "column", alignItems: "center", gap: "10px" , padding: "0", paddingTop: "10px", paddingBottom: "10px"}}>
-          <Flag code='es' style={{height: "20px"}}/>
-          <Flag code='it' style={{height: "20px"}}/>
-          <Flag code='de' style={{height: "20px"}}/>
+          <Flag code='es' style={{height: "20px", cursor: "pointer"}}/>
+          <Flag code='it' style={{height: "20px", cursor: "pointer"}}/>
+          <Flag code='de' style={{height: "20px", cursor: "pointer"}}/>
           </Container>
            </Popover.Content>
       </Popover>
