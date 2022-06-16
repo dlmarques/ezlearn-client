@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { Input, Button } from '@nextui-org/react';
 import "./todo.scss";
+import InsertTask from "./components/InsertTask";
 
 const Todo = ({ userID }) => {
   const [task, setTask] = useState();
@@ -20,6 +22,26 @@ const Todo = ({ userID }) => {
         body: JSON.stringify({
           id: userID,
           task: task,
+        }),
+      });
+      setTask("");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function deleteTask(_id){
+    setInserted(inserted - 1);
+    try {
+      fetch("http://localhost:3001/api/todo/deleteTask", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({
+          _id: _id,
         }),
       });
       setTask("");
@@ -48,18 +70,15 @@ const Todo = ({ userID }) => {
     <>
       <div className="todo-container">
         <h1>Todo List</h1>
-        <div className="row">
-          <input
-            type="text"
-            placeholder="Digit task"
-            value={task}
-            onChange={(e) => setTask(e.target.value)}
-          />
-          <button onClick={insertTask}>Insert</button>
-        </div>
-        <div>
+        <InsertTask task={task} setTask={setTask} insertTask={insertTask} />
+        <div className="tasks-list">
         {tasksList &&
-          tasksList.map((task) => <h2 key={task._id}> {task.task} </h2>)
+          tasksList.map((task) => 
+          <div className="task">
+            <h2 key={task._id}> {task.task} </h2>
+            <Button auto onClick={() => deleteTask(task._id)} color="error">Delete</Button>
+          </div>          
+          )
         }
         </div>
 
