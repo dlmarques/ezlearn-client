@@ -265,6 +265,8 @@ header {
     align-items: center;
     justify-content: space-evenly;
     background: url("../../../assets/images/bck5.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     border-bottom-right-radius: 100% 900px;
     border-bottom-left-radius: 0;
     -webkit-box-shadow: 9px 6px 25px -12px rgba(0, 0, 0, 0.329);

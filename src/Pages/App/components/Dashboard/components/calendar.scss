@@ -66,8 +66,8 @@
     color: #eeeeee;
     border-radius: 14px;
     border: none;
-    height: 35vh;
-    width: 700px;
+    height: 353px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -93,7 +93,7 @@
    background-color: none;
 }
 .react-calendar__tile--active{
-   background-color: #00ADB5;
+   background-color: #007cb5;
 }
 
 
@@ -102,6 +102,9 @@
        button{
            color: #eeeeee;
        }
+   }
+   .react-calendar__tile--now{
+    background-color: rgba(255, 255, 255, 0.129);
    }
 
    .react-calendar__month-view__days{
@@ -114,7 +117,7 @@
            color: #7c7c7c;
    }
    .react-calendar__tile.react-calendar__month-view__days__day.react-calendar__month-view__days__day--weekend{
-       color: #c93232;
+       color: #00ADB5;
    }
 
 

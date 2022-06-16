@@ -45,7 +45,7 @@ const App = () => {
   return (
     <>
       {emailVerified === false ? (
-        <Modal open={visible} width={800} justify="center">
+        <Modal open={visible} preventClose width={800} justify="center">
           <Modal.Header>
             <Text b size={28}>
               Verify your email address

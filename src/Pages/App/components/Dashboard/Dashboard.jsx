@@ -21,8 +21,10 @@ const Dashboard = ({userData}) => {
       <div className="calendar">
       <CalendarComponent selector="second-calendar"/>
       </div>
-      <ContainerActivity />
+      </div>
+      <div className="third-row">
       <TasksContainer />
+      <ContainerActivity />
       </div>
     </div>
     </>
