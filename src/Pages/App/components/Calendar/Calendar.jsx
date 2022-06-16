@@ -1,14 +1,12 @@
 import React from 'react'
+import Todo from '../Todo/Todo'
 import "./calendar.scss"
 
-const Calendar = () => {
+const Calendar = ({userID}) => {
 
   return (
     <>
-    <div className="container">
-    <button>Fetch</button>
-    </div>
-    
+    <Todo userID={userID} />    
     </>
   )
 }

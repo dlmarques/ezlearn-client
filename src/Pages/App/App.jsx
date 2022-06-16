@@ -90,8 +90,8 @@ const App = () => {
                   <Route exact path={path}>
                     <Dashboard userData={userData}/>
                   </Route>
-                  <Route path={`${path}calendar`}>
-                    <Calendar/>
+                  <Route path={`${path}/calendar`}>
+                    <Calendar userID={userID} />
                   </Route>
                 </Switch>
             </div>
