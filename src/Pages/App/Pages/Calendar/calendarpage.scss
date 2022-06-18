@@ -1,0 +1,22 @@
+.calendar-container{
+    padding: 50px 0 0 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .fc{
+        width: 50vw;
+        height: 800px;
+        a{
+            color: #eee;
+        }
+        h2{
+            color: #eee;
+        }
+    }
+
+    .column-two{
+        display: flex;
+        flex-direction: column;
+        gap: 100px;
+    }
+}

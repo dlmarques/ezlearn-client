@@ -7,7 +7,7 @@ import "./styles/app.scss";
 import { useAuth } from "../../contexts/AuthContext";
 import { Button, Modal, Row, Text } from "@nextui-org/react";
 import { useInfo } from "../../contexts/InfoContext";
-import Calendar from "./components/Calendar/Calendar";
+import CalendarPage from "./Pages/Calendar/CalendarPage";
 const App = () => {
   let { path } = useRouteMatch();
   const [closeSide, setCloseSide] = useState(false);
@@ -91,7 +91,7 @@ const App = () => {
                     <Dashboard userData={userData}/>
                   </Route>
                   <Route path={`${path}/calendar`}>
-                    <Calendar userID={userID} />
+                    <CalendarPage userID={userID} />
                   </Route>
                 </Switch>
             </div>

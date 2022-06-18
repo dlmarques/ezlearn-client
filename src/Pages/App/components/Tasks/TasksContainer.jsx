@@ -10,13 +10,14 @@ const TasksContainer = () => {
         backgroundColor: "#393E46",
         borderRadius: "14px",
         width: "30%",
-        height: "350px"
+        height: "auto",
+        paddingBottom: '15px'
       }}
     >
     <Row css={{display: "flex", alignItems:"center", justifyContent: "space-between", paddingBottom: "20px", paddingTop: "20px", width: "100%"}}>
         <Container >
         <Text css={{color: "#eeeeee", fontWeight: "500", fontSize: "2rem"}}>Upcoming Tasks</Text>
-        <Text css={{color: "#bbbbbb", fontWeight: "300"}}>Friday 20th June 2022</Text>
+        <Text css={{color: "#bbbbbb", fontWeight: "300", fontSize: '1vw'}}>Friday 20th June 2022</Text>
         </Container>
     </Row>
     <Row css={{paddingTop:"20px", display: "flex", alignItems: "center"}}>
@@ -25,10 +26,10 @@ const TasksContainer = () => {
         size="lg"
         />
         <Container>
-        <Text css={{color: "#eeeeee", fontWeight: "500", cursor: "pointer"}}>
+        <Text css={{color: "#eeeeee", fontWeight: "500", cursor: "pointer", fontSize: '1.25vw'}}>
             Discussion Algortihm
         </Text>
-        <Text css={{color: "#bbbbbb", fontWeight: "300"}}>
+        <Text css={{color: "#bbbbbb", fontWeight: "300", fontSize: '0.9vw'}}>
             08:00AM - 15:30PM
         </Text>
         </Container>
@@ -39,10 +40,10 @@ const TasksContainer = () => {
         size="lg"
         />
         <Container>
-        <Text css={{color: "#eeeeee", fontWeight: "500", cursor: "pointer"}}>
+        <Text css={{color: "#eeeeee", fontWeight: "500", cursor: "pointer", fontSize: '1.25vw'}}>
             Simple Landing Page Design
         </Text>
-        <Text css={{color: "#bbbbbb", fontWeight: "300"}}>
+        <Text css={{color: "#bbbbbb", fontWeight: "300", fontSize: '0.9vw'}}>
             09:00AM - 12:30PM
         </Text> 
         </Container>

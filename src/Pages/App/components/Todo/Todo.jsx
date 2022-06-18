@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { Input, Button } from '@nextui-org/react';
+import {  Button } from '@nextui-org/react';
 import "./todo.scss";
 import InsertTask from "./components/InsertTask";
 
