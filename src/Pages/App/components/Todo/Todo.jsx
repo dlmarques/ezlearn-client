@@ -4,8 +4,8 @@ import {  Button } from '@nextui-org/react';
 import "./todo.scss";
 import InsertTask from "./components/InsertTask";
 
-const Todo = ({ userID }) => {
-  const [task, setTask] = useState();
+const Todo = ({ userID, editable }) => {
+  const [task, setTask] = useState("");
   const [inserted, setInserted] = useState(0);
   const [tasksList, setTasksList] = useState();
 
@@ -69,8 +69,8 @@ const Todo = ({ userID }) => {
   return (
     <>
       <div className="todo-container">
-        <h1>Todo List</h1>
-        <InsertTask task={task} setTask={setTask} insertTask={insertTask} />
+        <h1>Tasks List</h1>
+        {editable ? <InsertTask task={task} setTask={setTask} insertTask={insertTask} /> : null}
         <div className="tasks-list">
         {tasksList &&
           tasksList.map((task) => 

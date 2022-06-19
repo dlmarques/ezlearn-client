@@ -20,7 +20,7 @@ const ContainerActivity = () => {
         css={{
           backgroundColor: "#393E46",
           borderRadius: "14px",
-          width: "60%",
+          width: "62%",
           height: "350px"
         }}
       >

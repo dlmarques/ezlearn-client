@@ -5,15 +5,13 @@ import './calendarpage.scss'
 import InsertDate from '../../components/Calendar/InsertDate'
 
 const CalendarPage = ({userID}) => {
-  const [insertedEvent, setInsertedEvent] = useState(0)
 
   return (
     <>
     <div className="calendar-container">
-    <Calendar userID={userID} insertedEvent={insertedEvent} />
+    <Calendar userID={userID} />
     <div className="column-two">
-    <InsertDate userID={userID} setInsertedEvent={setInsertedEvent} insertedEvent={insertedEvent} />
-    <Todo userID={userID}/> 
+    <Todo userID={userID} editable={true} /> 
     </div>
     </div>
     </>

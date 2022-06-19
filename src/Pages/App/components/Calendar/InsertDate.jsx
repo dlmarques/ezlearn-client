@@ -1,12 +1,17 @@
 import React from 'react'
 import { useState } from 'react'
-import { Input, Button } from '@nextui-org/react';
+import { Modal, Button, Text, Input } from "@nextui-org/react";
 import './insertdate.scss'
 
 
-const InsertDate = ({userID, setInsertedEvent, insertedEvent}) => {
-const [date, setDate] = useState("")
+const InsertDate = ({userID, visible, setVisible, startDate, endDate, load, setLoad}) => {
 const [event, setEvent] = useState("")
+
+const closeHandler = () => {
+  setVisible(false)
+  setEvent("")
+  setLoad(load + 1)
+}
 
   async function addEvent(){
     try {
@@ -20,25 +25,54 @@ const [event, setEvent] = useState("")
         body: JSON.stringify({
           id: userID,
           event: event,
-          date: date,
+          start: startDate,
+          end: endDate,
         }),
       })
-      setInsertedEvent(insertedEvent + 1)
-      setDate("")
-      setEvent("")
+      closeHandler()
     } catch (error) {
-      
+      console.error(error);
     }
-  }
+  } 
+
+
 
   return (
     <>
-    <div className="insertDate-container">
-        <h1>Add event</h1>
-        <Input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
-        <Input type="text" value={event} placeholder="Event Name" onChange={(e) => setEvent(e.target.value)} />
-        <Button auto css={{backgroundColor: "#00adb5", fontSize: "1rem", fontWeight: "300"}} onClick={addEvent}>Add Event</Button>
-    </div>
+     <Modal
+        closeButton
+        blur
+        aria-labelledby="modal-title"
+        open={visible}
+        onClose={closeHandler}
+      >
+        <Modal.Header>
+          <Text id="modal-title" size={18}>
+            Add Event
+          </Text>
+        </Modal.Header>
+        <Modal.Body>
+          <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="lg"
+            placeholder="Event title"
+            value={event}
+            aria-label="insert event title"
+            onChange={(e) => setEvent(e.target.value)}
+          />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button auto flat color="error" onClick={closeHandler}>
+            Close
+          </Button>
+          <Button auto onClick={addEvent}>
+            Add
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   )
 }

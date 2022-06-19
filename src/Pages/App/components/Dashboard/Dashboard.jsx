@@ -6,9 +6,10 @@ import ContainerChart from '../ChartLearning/Container';
 import ContainerActivity from '../ChartActivity/ContainerActivity';
 import TasksContainer from '../Tasks/TasksContainer';
 import ProfileCard from './components/ProfileCard';
+import Todo from '../Todo/Todo'
 
 
-const Dashboard = ({userData}) => {
+const Dashboard = ({userData , userID}) => {
   return (
     <>
     <div className="dashboard-container">
@@ -19,11 +20,11 @@ const Dashboard = ({userData}) => {
       <div className="second-grid">
       <ContainerChart/>
       <div className="calendar">
-      <CalendarComponent selector="second-calendar"/>
+      <CalendarComponent userID={userID} />
       </div>
       </div>
       <div className="third-row">
-      <TasksContainer />
+      <Todo editable={false} userID={userID} />
       <ContainerActivity />
       </div>
     </div>

@@ -31,9 +31,11 @@
         }  
 
         .calendar{
+            background-color: #393E46;
+            padding: 20px;
+            border-radius: 14px;
             display: flex;
-            justify-content: flex-end;
-            width: 35%;
+            width: 52%;
             @media (max-width:1400px){
                 width: 100%;
              }  

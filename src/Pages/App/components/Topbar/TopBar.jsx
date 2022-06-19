@@ -19,6 +19,7 @@ const TopBar = ({setCloseSide, closeSide, userData}) => {
       labelLeft={<HiOutlineSearch/>}
       clearable
       placeholder='Search'
+      arial-label="search"
       />
       </div>
       <div className="right">

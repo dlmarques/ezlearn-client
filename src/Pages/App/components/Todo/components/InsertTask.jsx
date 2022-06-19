@@ -8,8 +8,9 @@ const InsertTask = ({task, setTask, insertTask}) => {
           <Input
           clearable
           type="text"
-          placeholder="Digit task"
+          placeholder="Task name"
           value={task}
+          aria-label="set task name"
           onChange={(e) => setTask(e.target.value)}
           />
           <Button auto css={{backgroundColor: "#00adb5", fontSize: "1rem", fontWeight: "300"}} onClick={insertTask}>Add Task</Button>

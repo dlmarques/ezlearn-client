@@ -88,7 +88,7 @@ const App = () => {
             >  
                 <Switch>
                   <Route exact path={path}>
-                    <Dashboard userData={userData}/>
+                    <Dashboard userData={userData} userID={userID}/>
                   </Route>
                   <Route path={`${path}/calendar`}>
                     <CalendarPage userID={userID} />

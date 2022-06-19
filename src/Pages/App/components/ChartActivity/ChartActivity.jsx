@@ -51,7 +51,7 @@ export default class ChartActivity extends PureComponent {
 
   render() {
     return (
-        <LineChart width={500} height={100} data={data}>
+        <LineChart width={600} height={100} data={data}>
           <Line type="monotone" dataKey="pv" stroke="#00C49F" strokeWidth={8} dot={false} />
         </LineChart>
 
