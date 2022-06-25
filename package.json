@@ -61,12 +61,15 @@
     ]
   },
   "devDependencies": {
+    "@reduxjs/toolkit": "^1.8.2",
     "axios": "^0.27.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "dotenv-webpack": "^7.1.0",
     "firebase": "^9.8.2",
     "nodemon": "^2.0.16",
-    "react-firebase-hooks": "^5.0.3"
+    "react-firebase-hooks": "^5.0.3",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0"
   }
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
-import Dashboard from "./components/Dashboard/Dashboard";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 import SideBar from "./components/Sidebar/SideBar";
 import TopBar from "./components/Topbar/TopBar";
 import "./styles/app.scss";
@@ -8,6 +8,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { Button, Modal, Row, Text } from "@nextui-org/react";
 import { useInfo } from "../../contexts/InfoContext";
 import CalendarPage from "./Pages/Calendar/CalendarPage";
+import Courses from "./Pages/Courses/Courses";
 const App = () => {
   let { path } = useRouteMatch();
   const [closeSide, setCloseSide] = useState(false);
@@ -71,7 +72,7 @@ const App = () => {
           <div className="main-container-app">
             <div className="sidebar-app">
               {" "}
-              <SideBar setCloseSide={setCloseSide} closeSide={closeSide} />{" "}
+              <SideBar setCloseSide={setCloseSide} closeSide={closeSide} userData={userData && userData} />{" "}
             </div>
             <div className={closeSide ? "topbar active" : "topbar"}>
                 {" "}
@@ -92,6 +93,9 @@ const App = () => {
                   </Route>
                   <Route path={`${path}/calendar`}>
                     <CalendarPage userID={userID} />
+                  </Route>
+                  <Route path={`${path}/courses`}>
+                    <Courses/>
                   </Route>
                 </Switch>
             </div>

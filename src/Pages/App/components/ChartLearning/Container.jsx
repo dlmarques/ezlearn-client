@@ -12,12 +12,6 @@ import {MdOutlineKeyboardArrowDown} from "react-icons/md"
 import {FaCircle} from "react-icons/fa"
 
 const ContainerChart = () => {
-  const [selected, setSelected] = useState(new Set(["Today"]))
-  
-  const selectedValue = useMemo(
-    () => Array.from(selected).join(", ").replaceAll("_", " "),
-    [selected]
-  )
 
   return (
     <>
@@ -26,6 +20,7 @@ const ContainerChart = () => {
           backgroundColor: "#393E46",
           borderRadius: "14px",
           width: "59%",
+          minHeight: "100%",
           display: "flex",
           alignItems: "center"
         }}

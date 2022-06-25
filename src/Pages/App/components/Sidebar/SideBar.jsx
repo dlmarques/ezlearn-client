@@ -9,10 +9,11 @@ import { Button } from '@nextui-org/react';
 import { useAuth } from '../../../../contexts/AuthContext'
 import UpdateProfile from './components/UpdateProfile'
 
-const SideBar = ({setCloseSide, closeSide}) => {
+const SideBar = ({setCloseSide, closeSide, userData}) => {
   const [openChangeProfile, setOpenChangeProfile] = useState(false);
   const handler = () => setOpenChangeProfile(true)
   const {logout} = useAuth();
+  
 
   function closeBox(){
     setOpenChangeProfile(false)
@@ -29,10 +30,10 @@ const SideBar = ({setCloseSide, closeSide}) => {
       <div className="links">
         <a href="/app"><BiHomeCircle/> {!closeSide ? "Overview" : null}</a>
         <a href="/app/calendar"><BsCalendarDate/> {!closeSide ? "Calendar" : null}</a>
-        <a href=""><BiNotepad/> {!closeSide ? "Courses" : null}</a>
-        <a href=""><IoLibraryOutline/> {!closeSide ? "Library" : null}</a>
-        <a href=""><BsStar/> {!closeSide ? "Grades" : null}</a>
-        <a onClick={handler}><IoSettingsOutline/> {!closeSide ? "Settings" : null}</a>
+        {userData && userData.role === 'Student' ? <a href="/app/courses"><BiNotepad/> {!closeSide ? "Courses" : null}</a> : <a href="/app/courses"><BiNotepad/> {!closeSide ? "My Courses" : null}</a>}
+        <a href="/app"><IoLibraryOutline/> {!closeSide ? "Library" : null}</a>
+        {userData && userData.role === 'Student' ? <a href="/app"><BsStar/> {!closeSide ? "Grades" : null}</a> : null}
+        <a href='/' onClick={handler}><IoSettingsOutline/> {!closeSide ? "Settings" : null}</a>
       </div>
       <UpdateProfile openChangeProfile={openChangeProfile} closeBox={closeBox}/>
       <div className="bottom">

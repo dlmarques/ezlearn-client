@@ -72,9 +72,9 @@ const Login = ({ logInVisible, closeHandler }) => {
               onChange={(e) => setPassword(e.target.value)}
             />
             { error &&  
-            <Card color="error"className="animate__animated animate__shakeX">
-              <Text css={{fontWeight: "bold", color: "white"}}> {error} </Text>
-            </Card>
+            <Button auto flat color="error" disabled className="animate__animated animate__shakeX">
+               {error} 
+            </Button>
             }
             <Row justify="space-between">
               <Checkbox>

@@ -2,11 +2,11 @@ import React from 'react'
 import WelcomeCard from "./components/WelcomeCard"
 import "./Dashboard.scss"
 import CalendarComponent from './components/CalendarComponent';
-import ContainerChart from '../ChartLearning/Container';
-import ContainerActivity from '../ChartActivity/ContainerActivity';
-import TasksContainer from '../Tasks/TasksContainer';
+import ContainerChart from '../../components/ChartLearning/Container';
+import ContainerActivity from '../../components/ChartActivity/ContainerActivity';
+import TasksContainer from '../../components/Tasks/TasksContainer';
 import ProfileCard from './components/ProfileCard';
-import Todo from '../Todo/Todo'
+import Todo from '../../components/Todo/Todo'
 
 
 const Dashboard = ({userData , userID}) => {

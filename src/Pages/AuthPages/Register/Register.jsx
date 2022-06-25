@@ -46,16 +46,16 @@ const Register = ({registerVisible, closeHandler, setError, error}) => {
           firstName,
           lastName,
           role);
-         
-          await sendEmailVerification(auth.currentUser).catch((err) => 
-          console.log(err)
-         ) 
-         
+        
          await updateProfile(auth.currentUser, {displayName: username }).catch((err) => 
           console.log(err)
          ) 
          await logout();
          
+         await sendEmailVerification(auth.currentUser).catch((err) => 
+         console.log(err)
+        ) 
+        
           closeHandler(); 
           setFinished(true)
       }catch(err){
@@ -165,10 +165,10 @@ const Register = ({registerVisible, closeHandler, setError, error}) => {
           </select>
           <Row justify="space-between">
           { error &&  
-            <Card color="error"className="animate__animated animate__shakeX">
-              <Text css={{fontWeight: "bold", color: "white"}}> {error} </Text>
-            </Card>
-          }
+            <Button auto flat color="error" disabled className="animate__animated animate__shakeX">
+               {error} 
+            </Button>
+            }
           </Row>
         </Modal.Body>
         <Modal.Footer>
