@@ -19,16 +19,9 @@ const Course = ({img, title}) => {
                 <h3>Self-Paced</h3>
                 <h3>Seller Name</h3>
               </div>
-              <Button
-              css={{
-                backgroundColor: "#00adb5",
-                margin: 'auto',
-                marginTop: '5px',
-                width: '90%'
-              }}
-              >
-                Take course
-              </Button>
+                <button className='btn-take'>
+                  Take Course
+                </button>
             </div>
           </div>
     </>

@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 .courses-container {
   width: 100%;
   min-height: 100vh;
   padding: 50px 0 0 30px;
-
+  
   .operation-bar {
     display: flex;
     align-items: center;
@@ -22,12 +23,35 @@
     grid-column-gap: 25px;
     grid-row-gap: 35px;
 
+    @media (max-width: 1800px){
+      grid-template-columns: 20vw 20vw 20vw;
+      grid-column-gap: 25px;
+      grid-row-gap: 35px;
+      justify-content: center;
+    }
+    @media (max-width: 950px){
+      grid-template-columns: 30vw 30vw;
+      grid-row-gap: 35px;
+      justify-content: center;
+    }
+    @media (max-width: 850px){
+      grid-template-columns: 30vw;
+      grid-row-gap: 35px;
+      justify-content: center;
+    }
+
     .course {
       border-radius: 14px;
-      height: 370px;
-      width: 370px;
+      height: 21vw;
+      width: 20vw;
       background-color: #393e46;
+      padding-bottom: 10px;
 
+      @media (max-width: 950px){
+        width: 250px;
+        height: 250px;
+      }
+      
       .top {
         width: 100%;
         height: 50%;
@@ -46,13 +70,20 @@
         height: 50%;
         border-bottom-left-radius: 14px;
         border-bottom-right-radius: 14px;
+        display: flex;
+        flex-direction: column;
+        
 
         h1{
-            font-size: 26px;
+            font-size: 1.4vw;
             text-align: center;
             color: #eee;
             margin: 0;
             padding: 20px 0 0 0;
+
+            @media (max-width: 950px){
+             font-size: 1.9vw;
+            }
         }
 
         .row{
@@ -67,7 +98,30 @@
             h3{
                 color: #eee;
                 font-weight: 300;
+                font-size: 1.1vw;
+                @media (max-width: 950px){
+                  font-size: 1.4vw;
+                 }
             }
+        }
+
+        .btn-take{
+          background-color: #00adb5;
+          border: none;
+          outline: none;
+          border-radius: 14px;
+          color: #eee;
+          width: 16vw;
+          height: 50px;
+          margin: auto;
+          font-weight: 500;
+          font-family: "Poppins", sans-serif;
+          cursor: pointer;
+
+          @media (max-width: 950px){
+            height: 30px;
+            width: 80%;
+           }
         }
       }
     }
