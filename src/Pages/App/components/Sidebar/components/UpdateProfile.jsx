@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Modal, Text, Input, Avatar, Button } from "@nextui-org/react";
-import { useAuth } from "../../../../../contexts/AuthContext";
-import { useInfo } from "../../../../../contexts/InfoContext";
+import { useAuth } from "../../../../../contexts/Context";
 import "./UpdateProfile.scss";
 
 const UpdateProfile = ({ openChangeProfile, closeBox }) => {
-  const { currentUser, changePassword, logout } = useAuth();
-  const { getUserInfo, uploadPhoto } = useInfo();
+  const { currentUser, changePassword, logout, getUserInfo } = useAuth();
   const [ userPhoto, setUserPhoto] = useState();
   const [ currentPassword, setCurrentPassword] = useState();
   const [ newPassword, setNewPassword] = useState();
@@ -23,13 +21,13 @@ const UpdateProfile = ({ openChangeProfile, closeBox }) => {
     
   });
 
-  async function updatePicture(){
+  /*async function updatePicture(){
       try {
         await uploadPhoto(userPhoto, userID)
       } catch (error) {
         console.error(error);
       }
-  }
+  }*/
 
   async function updatePassword(){
     try{
@@ -76,7 +74,7 @@ const UpdateProfile = ({ openChangeProfile, closeBox }) => {
             disabled
             label="Username"
           /> 
-          <Button css={{fontSize: "18px",backgroundColor: "#00ADB5"}} onClick={updatePicture}>Save Photo</Button>
+          <Button css={{fontSize: "18px",backgroundColor: "#00ADB5"}} /* onClick={updatePicture} */>Save Photo</Button>
           <Text css={{ color: "#fff", fontSize: "24px", textAlign: "center" }}>Change Password</Text>
           <Input
             type="password"

@@ -4,8 +4,7 @@ import { FiUser } from "react-icons/fi";
 import { BsCalendarDate } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
 import { IoSettingsOutline } from "react-icons/io5";
-import { useAuth } from "../../../../contexts/AuthContext";
-import { Link } from "react-router-dom";
+import { useAuth } from "../../../../contexts/Context";
 
 const ProfileBox = () => {
   const { currentUser, logout } = useAuth();

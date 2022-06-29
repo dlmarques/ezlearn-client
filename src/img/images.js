@@ -10,14 +10,6 @@ const IMAGES = {
     team2: require('./team2.png'),
     team3: require('./team3.png'),
     mix: require('./mix.png'),
-    course1: require('./course1.jpeg'),
-    course2: require('./course2.jpeg'),
-    course3: require('./course3.jpg'),
-    course4: require('./course4.jpg'),
-    course5: require('./course5.png'),
-    course6: require('./course6.png'),
-
-    
 }
 
 export default IMAGES;

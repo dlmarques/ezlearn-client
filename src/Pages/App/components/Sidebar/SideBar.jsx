@@ -6,7 +6,7 @@ import { BiHomeCircle, BiLogOut, BiNotepad } from 'react-icons/bi'
 import { BsCalendarDate, BsStar } from 'react-icons/bs'
 import vector1 from "../../../../img/vector1.png"
 import { Button } from '@nextui-org/react';
-import { useAuth } from '../../../../contexts/AuthContext'
+import { useAuth } from '../../../../contexts/Context'
 import UpdateProfile from './components/UpdateProfile'
 
 const SideBar = ({setCloseSide, closeSide, userData}) => {
@@ -32,8 +32,7 @@ const SideBar = ({setCloseSide, closeSide, userData}) => {
         <a href="/app/calendar"><BsCalendarDate/> {!closeSide ? "Calendar" : null}</a>
         {userData && userData.role === 'Student' ? <a href="/app/courses"><BiNotepad/> {!closeSide ? "Courses" : null}</a> : <a href="/app/courses"><BiNotepad/> {!closeSide ? "My Courses" : null}</a>}
         <a href="/app"><IoLibraryOutline/> {!closeSide ? "Library" : null}</a>
-        {userData && userData.role === 'Student' ? <a href="/app"><BsStar/> {!closeSide ? "Grades" : null}</a> : null}
-        <a href='/' onClick={handler}><IoSettingsOutline/> {!closeSide ? "Settings" : null}</a>
+        <a onClick={handler}><IoSettingsOutline/> {!closeSide ? "Settings" : null}</a>
       </div>
       <UpdateProfile openChangeProfile={openChangeProfile} closeBox={closeBox}/>
       <div className="bottom">

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Modal, Button, Text, Input, Row, Card, Radio } from "@nextui-org/react";
+import { Modal, Button, Text, Input, Row } from "@nextui-org/react";
 import {
   HiOutlineMail,
   HiOutlineLockClosed,
   HiOutlineUser,
 } from "react-icons/hi";
 import "./Register.scss"
-import { useAuth } from "../../../contexts/AuthContext";
+import { useAuth } from "../../../contexts/Context";
 import { auth } from "../../../firebase-config";
 import {sendEmailVerification, updateProfile} from "firebase/auth"
 

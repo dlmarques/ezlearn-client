@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import { Modal, Button, Text, Input, Row, Checkbox, Card } from "@nextui-org/react";
+import { Modal, Button, Text, Input} from "@nextui-org/react";
 import { HiOutlineMail } from "react-icons/hi";
-import { useAuth } from '../../../../contexts/AuthContext';
+import { useAuth } from '../../../../contexts/Context';
 
 const ResetModal = ({resetModal, closeReset}) => {
     const {sendPasswordReset} = useAuth();

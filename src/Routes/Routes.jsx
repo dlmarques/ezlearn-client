@@ -2,16 +2,14 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import App from "../Pages/App/App";
 import Page from "../Pages/LandingPage/Page";
-import { AuthProvider } from "../contexts/AuthContext";
+import { ContextProvider } from "../contexts/Context";
 import PrivateRoute from "./PrivateRoute";
-import { InfoProvider } from "../contexts/InfoContext";
 
 const Routes = () => {
   return (
     <>
       <Router>
-        <AuthProvider>
-          <InfoProvider>
+        <ContextProvider>
             <Switch>
               <PrivateRoute path="/app">
                 <App />
@@ -20,8 +18,7 @@ const Routes = () => {
                 <Page />
               </Route>
             </Switch>
-          </InfoProvider>
-        </AuthProvider>
+        </ContextProvider>
       </Router>
     </>
   );

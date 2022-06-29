@@ -2,7 +2,7 @@ import React from 'react'
 import { MdOutlineWatchLater } from "react-icons/md";
 import { Button } from "@nextui-org/react";
 
-const Course = ({img, title}) => {
+const Course = ({img, title, duration}) => {
   return (
     <>
               <div className="course">
@@ -14,7 +14,7 @@ const Course = ({img, title}) => {
               <div className="row">
                 <span id="duration">
                   <MdOutlineWatchLater />
-                  <h3>50h</h3>
+                  <h3>{duration}h</h3>
                 </span>
                 <h3>Self-Paced</h3>
                 <h3>Seller Name</h3>

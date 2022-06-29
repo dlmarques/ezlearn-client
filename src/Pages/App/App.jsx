@@ -4,9 +4,8 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import SideBar from "./components/Sidebar/SideBar";
 import TopBar from "./components/Topbar/TopBar";
 import "./styles/app.scss";
-import { useAuth } from "../../contexts/AuthContext";
+import { useAuth } from "../../contexts/Context";
 import { Button, Modal, Row, Text } from "@nextui-org/react";
-import { useInfo } from "../../contexts/InfoContext";
 import CalendarPage from "./Pages/Calendar/CalendarPage";
 import Courses from "./Pages/Courses/Courses";
 const App = () => {
@@ -14,8 +13,7 @@ const App = () => {
   const [closeSide, setCloseSide] = useState(false);
   const [visible, setVisible] = useState(false);
   const [userData, setUserData] = useState()
-  const { currentUser } = useAuth();
-  const { getUserInfo } = useInfo();
+  const { currentUser, getUserInfo } = useAuth();
   const userID = currentUser._delegate.uid;
   const emailVerified = currentUser.emailVerified;
   const width = window.innerWidth;

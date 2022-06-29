@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Input, Button } from "@nextui-org/react";
-import IMAGES from "../../../../img/images";
 import "./courses.scss";
 import Course from "./components/Course";
+import AddCourse from './components/AddCourse'
+import { useAuth } from "../../../../contexts/Context";
 
 
 const Courses = () => {
+  const {getCourses} = useAuth()
+  const [openCourseHandler, setOpenCourseHandler] = useState(false);
+  const [coursesData, setCoursesData] = useState()
+  const [changed, setChanged] = useState(0)
+
+  useEffect(() => {
+    async function requestCourses(){
+     await getCourses().then((coursesData) => setCoursesData(coursesData || []))
+    }
+    requestCourses();
+  }, [changed])
+
   return (
     <>
       <div className="courses-container">
@@ -23,19 +36,17 @@ const Courses = () => {
             css={{
               backgroundColor: "#00adb5",
             }}
+            onClick={() => setOpenCourseHandler(true)}
           >
             Add Course
           </Button>
         </div>
+        <AddCourse open={openCourseHandler} setOpen={setOpenCourseHandler} setChanged={setChanged} changed={changed} />
         <div className="courses">
-            <Course img={IMAGES.course1} title='JavaScript Master Course' />
-            <Course img={IMAGES.course2} title='React Crash Course'/>
-            <Course img={IMAGES.course3} title='HTML Basics'/>
-            <Course img={IMAGES.course4} title='CSS Master'/>
-            <Course img={IMAGES.course5} title='Python Crash Course'/>
-            <Course img={IMAGES.course6} title='Angular Crash Course'/>
-            <Course img={IMAGES.course1} title='JavaScript Master Course' />
-            <Course img={IMAGES.course2} title='React Crash Course'/>
+            {coursesData && 
+            coursesData.map((course) => 
+            <Course img={course.image} title={course.courseName} duration={course.duration} />
+            )}
         </div>
       </div>
     </>

@@ -23,7 +23,7 @@ import Register from "../AuthPages/Register/Register";
 //images
 import IMAGES from "../../img/images";
 
-import { useAuth } from "../../contexts/AuthContext";
+import { useAuth } from "../../contexts/Context";
 
 const Page = () => {
   const prevScrollY = useRef(0);

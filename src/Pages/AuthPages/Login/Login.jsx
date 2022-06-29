@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Modal, Button, Text, Input, Row, Checkbox, Card } from "@nextui-org/react";
+import { Modal, Button, Text, Input, Row, Checkbox } from "@nextui-org/react";
 import { HiOutlineMail, HiOutlineLockClosed } from "react-icons/hi";
-import { useAuth } from "../../../contexts/AuthContext";
-import { Redirect, useHistory } from "react-router-dom";
+import { useAuth } from "../../../contexts/Context";
+import { useHistory } from "react-router-dom";
 import ResetModal from "./components/ResetModal";
 
 const Login = ({ logInVisible, closeHandler }) => {
