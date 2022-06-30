@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, Button, Grid, Row } from "@nextui-org/react";
+import { Text, Grid, Row } from "@nextui-org/react";
 import NotificationItem from './NotificationItem';
 import {FiPlusCircle} from "react-icons/fi"
 

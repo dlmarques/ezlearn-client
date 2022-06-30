@@ -1,15 +1,6 @@
-import React, {useState, useMemo} from "react";
-import {
-  Container,
-  Row,
-  Text,
-  Popover,
-  Button,
-  Dropdown
-} from "@nextui-org/react";
-import ChartLearning from "./ChartLearning";
-import {MdOutlineKeyboardArrowDown} from "react-icons/md"
-import {FaCircle} from "react-icons/fa"
+import React from "react";
+import { Container, Text } from "@nextui-org/react";
+
 
 const ContainerChart = () => {
 

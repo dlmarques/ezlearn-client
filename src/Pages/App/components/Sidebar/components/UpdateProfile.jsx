@@ -1,33 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { Modal, Text, Input, Avatar, Button } from "@nextui-org/react";
+import React, { useState } from "react";
+import { Modal, Text, Input, Button } from "@nextui-org/react";
 import { useAuth } from "../../../../../contexts/Context";
 import "./UpdateProfile.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { changeProfileModalActions } from "../../../../../store/UI/ChangeProfileModal/ChangeProfileModal";
 
-const UpdateProfile = ({ openChangeProfile, closeBox }) => {
-  const { currentUser, changePassword, logout, getUserInfo } = useAuth();
-  const [ userPhoto, setUserPhoto] = useState();
+const UpdateProfile = () => {
+  const dispatch = useDispatch()
+  const { currentUser, changePassword, logout } = useAuth();
   const [ currentPassword, setCurrentPassword] = useState();
   const [ newPassword, setNewPassword] = useState();
   const [ error, setError] = useState();
+  const changeProfileUI = useSelector((state) => state.changeProfileUI.isOpened)
 
-
-  const [userData, setUserData] = useState();
 
   const userID = currentUser._delegate.uid;
   const username = currentUser._delegate.displayName;
 
-  useEffect(() => {
-    getUserInfo(userID).then((data) => setUserData(data));
-    
-  });
-
-  /*async function updatePicture(){
-      try {
-        await uploadPhoto(userPhoto, userID)
-      } catch (error) {
-        console.error(error);
-      }
-  }*/
+  const closeModal = () => dispatch(changeProfileModalActions.closeModal())
 
   async function updatePassword(){
     try{
@@ -49,8 +39,8 @@ const UpdateProfile = ({ openChangeProfile, closeBox }) => {
     <>
       <Modal
         closeButton
-        open={openChangeProfile}
-        onClose={closeBox}
+        open={changeProfileUI}
+        onClose={closeModal}
         blur
         css={{ backgroundColor: "#393E46" }}
       >
@@ -58,15 +48,6 @@ const UpdateProfile = ({ openChangeProfile, closeBox }) => {
           <Text css={{ color: "#fff", fontSize: "28px" }}>Profile</Text>
         </Modal.Header>
         <Modal.Body css={{ color: "#fff" }}>
-          <Avatar
-            size="xl"
-            src={userData && userData.avatar}
-            css={{ margin: "auto", height: "150px", width: "150px" }}
-          />
-          <label className="label">
-            <input type="file" required onChange={(e) => setUserPhoto(e.target.files[0])} />
-            <span>Change Photo</span>
-          </label>
           <Input
             type="text"
             css={{ background: "transparent" }}
@@ -74,7 +55,6 @@ const UpdateProfile = ({ openChangeProfile, closeBox }) => {
             disabled
             label="Username"
           /> 
-          <Button css={{fontSize: "18px",backgroundColor: "#00ADB5"}} /* onClick={updatePicture} */>Save Photo</Button>
           <Text css={{ color: "#fff", fontSize: "24px", textAlign: "center" }}>Change Password</Text>
           <Input
             type="password"

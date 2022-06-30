@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
+import {useDispatch} from 'react-redux'
 import { auth } from "../firebase-config";
 import { useHistory } from "react-router-dom";
 import { updatePassword } from "firebase/auth";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../firebase-config";
 import { v4 } from "uuid";
+import {coursesActions} from '../store/Courses/courses'
 
 const Context = React.createContext();
 
@@ -13,6 +15,7 @@ export function useAuth() {
 }
 
 export function ContextProvider({ children }) {
+  const dispatch = useDispatch();
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
   const history = useHistory();
@@ -107,6 +110,12 @@ export function ContextProvider({ children }) {
         image: url,
       }),
     });
+    dispatch(coursesActions.addCourse({
+      id: userID,
+      courseName: courseName,
+      duration: duration,
+      image: url
+    }))
   }
 
   async function getUserInfo(id){

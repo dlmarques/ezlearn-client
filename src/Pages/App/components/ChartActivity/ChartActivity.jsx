@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
 
-import { LineChart, Line, ResponsiveContainer } from 'recharts';
+import { LineChart, Line } from 'recharts';
 
 const data = [
   {

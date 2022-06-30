@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, Button, Grid, Row, Avatar } from "@nextui-org/react";
+import { Text, Grid, Row, Avatar } from "@nextui-org/react";
 
 const NotificationItem = ({avatar, name, message, time}) => {
   return (

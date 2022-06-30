@@ -4,7 +4,6 @@ import "./Dashboard.scss"
 import CalendarComponent from './components/CalendarComponent';
 import ContainerChart from '../../components/ChartLearning/Container';
 import ContainerActivity from '../../components/ChartActivity/ContainerActivity';
-import TasksContainer from '../../components/Tasks/TasksContainer';
 import ProfileCard from './components/ProfileCard';
 import Todo from '../../components/Todo/Todo'
 

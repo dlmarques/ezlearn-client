@@ -1,6 +1,5 @@
 import React from 'react'
 import { MdOutlineWatchLater } from "react-icons/md";
-import { Button } from "@nextui-org/react";
 
 const Course = ({img, title, duration}) => {
   return (

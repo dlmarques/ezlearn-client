@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Input, Button } from "@nextui-org/react";
 import "./courses.scss";
-import Course from "./components/Course";
-import AddCourse from './components/AddCourse'
-import { useAuth } from "../../../../contexts/Context";
 
+//UI Components
+import Course from "./components/Course";
+import AddCourse from "./components/AddCourse";
+
+//State management
+import { useAuth } from "../../../../contexts/Context";
+import { addCourseModalActions } from "../../../../store/UI/AddCourseModal/AddCourseModal";
 
 const Courses = () => {
-  const {getCourses} = useAuth()
-  const [openCourseHandler, setOpenCourseHandler] = useState(false);
-  const [coursesData, setCoursesData] = useState()
-  const [changed, setChanged] = useState(0)
+  const dispatch = useDispatch();
+  const { getCourses } = useAuth();
+
+  const [coursesData, setCoursesData] = useState();
+  const courses = useSelector((state) => state.courses.courses);
+
+  const openAddCourseModal = () => dispatch(addCourseModalActions.openAddCourseModal())
 
   useEffect(() => {
-    async function requestCourses(){
-     await getCourses().then((coursesData) => setCoursesData(coursesData || []))
-    }
-    requestCourses();
-  }, [changed])
+    getCourses().then((coursesData) => setCoursesData(coursesData || []));
+  }, [courses]);
 
   return (
     <>
@@ -36,17 +41,21 @@ const Courses = () => {
             css={{
               backgroundColor: "#00adb5",
             }}
-            onClick={() => setOpenCourseHandler(true)}
+            onClick={openAddCourseModal}
           >
             Add Course
           </Button>
         </div>
-        <AddCourse open={openCourseHandler} setOpen={setOpenCourseHandler} setChanged={setChanged} changed={changed} />
+        <AddCourse />
         <div className="courses">
-            {coursesData && 
-            coursesData.map((course) => 
-            <Course img={course.image} title={course.courseName} duration={course.duration} />
-            )}
+          {coursesData &&
+            coursesData.map((course) => (
+              <Course
+                img={course.image}
+                title={course.courseName}
+                duration={course.duration}
+              />
+            ))}
         </div>
       </div>
     </>

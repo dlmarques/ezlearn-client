@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
+
+//UI components
 import { Grid, Row, Text } from "@nextui-org/react";
 import { FiUser } from "react-icons/fi";
 import { BsCalendarDate } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
 import { IoSettingsOutline } from "react-icons/io5";
+
+//State Management
 import { useAuth } from "../../../../contexts/Context";
 
 const ProfileBox = () => {

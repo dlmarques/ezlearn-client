@@ -62,8 +62,8 @@ const Calendar = ({ userID }) => {
         select={selectDate}
         eventClick={selectEvent}
       />
-     <InsertDate userID={userID} visible={addVisible} setVisible={setAddVisible} startDate={startDate} endDate={endDate} load={load} setLoad={setLoad} />
-    <DeleteEvent visible={deleteVisible} setVisible={setDeleteVisible} id={publicID} title={taskTitle} load={load} setLoad={setLoad}/>
+      <InsertDate userID={userID} visible={addVisible} setVisible={setAddVisible} startDate={startDate} endDate={endDate} load={load} setLoad={setLoad} />
+      <DeleteEvent visible={deleteVisible} setVisible={setDeleteVisible} id={publicID} title={taskTitle} load={load} setLoad={setLoad}/>
     </>
   );
 };

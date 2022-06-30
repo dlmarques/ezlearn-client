@@ -6,15 +6,23 @@ import { Button, Input, Popover, Container, User} from "@nextui-org/react";
 import Flag from 'react-world-flags'
 import Notifications from './Notifications';
 import ProfileBox from './ProfileBox';
+import { useDispatch, useSelector } from 'react-redux';
+import { sidebarActions } from '../../../../store/UI/SideBar/sidebar';
 
 
 
-const TopBar = ({setCloseSide, closeSide, userData}) => {
+const TopBar = ({userData}) => {
+  const dispatch = useDispatch();
+
+  const sidebar = useSelector((state) => state.sidebarUI.isOpened)
+
+  const openSidebar = () => dispatch(sidebarActions.openSidebar())
+
   return (
     <>
-    <div className={ closeSide ? "topbar-app-small" : "topbar-app"}>
+    <div className={ sidebar ? "topbar-app-small" : "topbar-app"}>
       <div className="left">
-      { closeSide ? <IoMenu id='menu-icon' onClick={() => setCloseSide(false)}/> : null}
+      { sidebar ? <IoMenu id='menu-icon' onClick={openSidebar}/> : null}
       <Input
       labelLeft={<HiOutlineSearch/>}
       clearable

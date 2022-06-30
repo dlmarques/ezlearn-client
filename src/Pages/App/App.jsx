@@ -1,105 +1,78 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
+import "./styles/app.scss";
+
+//UI Components
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import SideBar from "./components/Sidebar/SideBar";
 import TopBar from "./components/Topbar/TopBar";
-import "./styles/app.scss";
-import { useAuth } from "../../contexts/Context";
-import { Button, Modal, Row, Text } from "@nextui-org/react";
 import CalendarPage from "./Pages/Calendar/CalendarPage";
 import Courses from "./Pages/Courses/Courses";
+
+//State management
+import { useAuth } from "../../contexts/Context";
+import { useDispatch, useSelector } from "react-redux";
+import { sidebarActions } from "../../store/UI/SideBar/sidebar";
+
 const App = () => {
+  const dispatch = useDispatch();
   let { path } = useRouteMatch();
-  const [closeSide, setCloseSide] = useState(false);
-  const [visible, setVisible] = useState(false);
-  const [userData, setUserData] = useState()
   const { currentUser, getUserInfo } = useAuth();
   const userID = currentUser._delegate.uid;
-  const emailVerified = currentUser.emailVerified;
   const width = window.innerWidth;
-  
+
+  const [userData, setUserData] = useState();
+  const sidebar = useSelector((state) => state.sidebarUI.isOpened);
+
+  const openSidebar = () => dispatch(sidebarActions.openSidebar());
+  const closeSidebar = () => dispatch(sidebarActions.closeSidebar());
+
   useEffect(() => {
     const getData = async () => {
-     const res = await getUserInfo(userID)
-      setUserData(res)
-    }
-    getData()
+      const data = await getUserInfo(userID);
+      setUserData(data);
+    };
+    getData();
 
-    //verify account
-    if (emailVerified === false) {
-      setVisible(true);
-    }
     //set Sidebar size
     if (width <= 950) {
-      setCloseSide(true);
+      closeSidebar();
     } else {
-      setCloseSide(false);
+      openSidebar();
     }
-  }, width);
+  }, [width]);
 
-  const verify = () => {
-    window.location.reload(false);
-  };
-  
   return (
     <>
-      {emailVerified === false ? (
-        <Modal open={visible} preventClose width={800} justify="center">
-          <Modal.Header>
-            <Text b size={28}>
-              Verify your email address
-            </Text>
-          </Modal.Header>
-          <Modal.Body>
-            <Row justify="center">
-              <Text size={19} css={{ textAlign: "center" }}>
-                To access platform, you need verify your email address
-              </Text>
-            </Row>
-          </Modal.Body>
-          <Modal.Footer justify="center">
-            <Button auto color="primary" onClick={verify}>
-              <Text css={{ color: "White", fontWeight: "500" }} size={18}>
-                I already checked the email
-              </Text>
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      ) : (
-        <>
-          <div className="main-container-app">
-            <div className="sidebar-app">
-              {" "}
-              <SideBar setCloseSide={setCloseSide} closeSide={closeSide} userData={userData && userData} />{" "}
-            </div>
-            <div className={closeSide ? "topbar active" : "topbar"}>
-                {" "}
-                <TopBar
-                  setCloseSide={setCloseSide}
-                  closeSide={closeSide}
-                  userData={userData && userData}
-                />{" "}
-              </div>
-            <div
-              className={
-                closeSide ? "content-container active" : "content-container"
-              }
-            >  
-                <Switch>
-                  <Route exact path={path}>
-                    <Dashboard userData={userData} userID={userID}/>
-                  </Route>
-                  <Route path={`${path}/calendar`}>
-                    <CalendarPage userID={userID} />
-                  </Route>
-                  <Route path={`${path}/courses`}>
-                    <Courses/>
-                  </Route>
-                </Switch>
-            </div>
+      <>
+        <div className="main-container-app">
+          <div className="sidebar-app">
+            {" "}
+            <SideBar userData={userData && userData} />{" "}
           </div>
-        </>
-      )}
+          <div className={sidebar ? "topbar active" : "topbar"}>
+            {" "}
+            <TopBar userData={userData && userData} />{" "}
+          </div>
+          <div
+            className={
+              sidebar ? "content-container active" : "content-container"
+            }
+          >
+            <Switch>
+              <Route exact path={path}>
+                <Dashboard userData={userData} userID={userID} />
+              </Route>
+              <Route path={`${path}/calendar`}>
+                <CalendarPage userID={userID} />
+              </Route>
+              <Route path={`${path}/courses`}>
+                <Courses />
+              </Route>
+            </Switch>
+          </div>
+        </div>
+      </>
     </>
   );
 };

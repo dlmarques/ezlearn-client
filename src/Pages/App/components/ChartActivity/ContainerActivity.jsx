@@ -2,14 +2,8 @@ import React from 'react'
 import {
     Container,
     Row,
-    Col,
     Text,
-    Grid,
-    Popover,
-    Button,
   } from "@nextui-org/react";
-  import {MdOutlineKeyboardArrowDown} from "react-icons/md"
-  import {FaCircle} from "react-icons/fa"
 import ChartActivity from './ChartActivity';
   
 
