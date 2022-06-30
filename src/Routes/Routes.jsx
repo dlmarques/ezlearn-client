@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { ContextProvider } from "../contexts/Context";
+
 import App from "../Pages/App/App";
 import Page from "../Pages/LandingPage/Page";
-import { ContextProvider } from "../contexts/Context";
 import PrivateRoute from "./PrivateRoute";
 
 const Routes = () => {

@@ -1,17 +1,27 @@
 import React, { useState } from "react";
+import {useSelector, useDispatch} from 'react-redux'
+import "./Register.scss"
+import { auth } from "../../../firebase-config";
+
+//UI Components
 import { Modal, Button, Text, Input, Row } from "@nextui-org/react";
 import {
   HiOutlineMail,
   HiOutlineLockClosed,
   HiOutlineUser,
 } from "react-icons/hi";
-import "./Register.scss"
+
+//state management
 import { useAuth } from "../../../contexts/Context";
-import { auth } from "../../../firebase-config";
 import {sendEmailVerification, updateProfile} from "firebase/auth"
+import { registerModalActions } from "../../../store/UI/RegisterModal/RegisterUI";
 
 
-const Register = ({registerVisible, closeHandler, setError, error}) => {
+const Register = () => {
+  const dispatch = useDispatch();
+  const { signup, logout } = useAuth()
+
+  //states
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
@@ -20,17 +30,17 @@ const Register = ({registerVisible, closeHandler, setError, error}) => {
   const [registerConfirmPassword, setRegisterConfirmPassword] = useState("");
   const [role, setRole] = useState("");
   const [loading, setLoading] = useState(false);
-  const [finished, setFinished] = useState(false);
-  const { signup, logout } = useAuth()
+  const registerIsVisible = useSelector((state) => state.registerUI.registerIsVisible)
   
-
+  
+  const closeRegisterModal = () => dispatch(registerModalActions.closeRegisterModal())
 
   const validatePassword = () => {
     let isValid = true;
     if(registerPassword !== '' && registerConfirmPassword !== ''){
       if(registerPassword !== registerConfirmPassword){
         isValid = false;
-        setError('Passwords does not match')
+        //erro
       }
     }
     return isValid
@@ -46,7 +56,6 @@ const Register = ({registerVisible, closeHandler, setError, error}) => {
           firstName,
           lastName,
           role);
-        
          await updateProfile(auth.currentUser, {displayName: username }).catch((err) => 
           console.log(err)
          ) 
@@ -56,27 +65,20 @@ const Register = ({registerVisible, closeHandler, setError, error}) => {
          console.log(err)
         ) 
         
-          closeHandler(); 
-          setFinished(true)
+        closeRegisterModal(); 
       }catch(err){
         console.error(err.message)
-        setFinished(false)
       }
       setLoading(false)
     }else{
       console.log('error on registration')
-      setFinished(false)
     }
   
   }
 
-  const closeVerifyBox = () => {
-      setFinished(false)
-  }
-
   return (
     <>
-      <Modal closeButton open={registerVisible} onClose={closeHandler}>
+      <Modal closeButton open={registerIsVisible} onClose={closeRegisterModal}>
         <Modal.Header>
           <Text id="modal-title" size={18}>
             Welcome to <b>EzLearn</b>
@@ -163,31 +165,15 @@ const Register = ({registerVisible, closeHandler, setError, error}) => {
             <option value="Seller">Seller</option>
             <option value="Student">Student</option>
           </select>
-          <Row justify="space-between">
-          { error &&  
-            <Button auto flat color="error" disabled className="animate__animated animate__shakeX">
-               {error} 
-            </Button>
-            }
-          </Row>
         </Modal.Body>
         <Modal.Footer>
-          <Button auto flat color="error" onClick={closeHandler} disabled={loading}>
+          <Button auto flat color="error" onClick={closeRegisterModal} disabled={loading}>
             Close
           </Button>
           <Button auto onClick={register}>
             Sign Up
           </Button>
         </Modal.Footer>
-      </Modal>
-
-      <Modal closeButton open={finished} onClose={closeVerifyBox}>
-        <Modal.Header css={{display: "flex", justifyContent: "center"}}>
-            <img src="https://svgshare.com/i/B1t.svg" alt="" style={{height: "150px"}} />
-        </Modal.Header>
-        <Modal.Body>
-          <Text css={{fontSize: "22px", textAlign: "center", fontWeight: "300"}}>Check your email inbox and verify your account!</Text>
-        </Modal.Body>
       </Modal>
       
     </>

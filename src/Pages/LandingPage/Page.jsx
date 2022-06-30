@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import "./App.scss";
-import 'animate.css';
+import "animate.css";
+import { useDispatch, useSelector } from "react-redux";
 
 //icons
 import { HiOutlineMenu } from "react-icons/hi";
@@ -23,30 +24,19 @@ import Register from "../AuthPages/Register/Register";
 //images
 import IMAGES from "../../img/images";
 
+//state management
 import { useAuth } from "../../contexts/Context";
+import { loginModalActions } from "../../store/UI/LoginModal/LoginUI";
+import { registerModalActions } from "../../store/UI/RegisterModal/RegisterUI";
+import { mobileMenuActions } from "../../store/UI/MobileMenu/MobileMenuUI";
 
 const Page = () => {
+  const dispatch = useDispatch();
   const prevScrollY = useRef(0);
-  const [openMobile, setOpenMobile] = useState(false);
-  const [changeColor, setChangeColor] = useState(false);
-  const [logInVisible, setLogInVisible] = useState(false);
-  const [registerVisible, setRegisterVisible] = useState(false);
-  const [error, setError] = useState("");
   const { currentUser } = useAuth();
 
-  const handlerRegister = () => setRegisterVisible(true);
- 
-  const closeHandlerRegister = () => {
-    setError("");
-    setRegisterVisible(false);
-  };
-
-  const handlerLogin = () => setLogInVisible(true);
-
-  const closeHandlerLogin = () => {
-    setLogInVisible(false);
-    console.log("closed");
-  };
+  const [changeColor, setChangeColor] = useState(false);
+  const mobileMenuIsVisible = useSelector((state) => state.mobileMenuUI.mobileMenuIsVisible);
 
   const positionScroll = (e) => {
     const currentScrollY = e.target.scrollTop;
@@ -58,7 +48,12 @@ const Page = () => {
     }
     prevScrollY.current = currentScrollY;
   };
-  
+
+  const openLoginModal = () => dispatch(loginModalActions.openLoginModal());
+
+  const openRegisterModal = () => dispatch(registerModalActions.openRegisterModal());
+
+  const openMobileMenu = () => dispatch(mobileMenuActions.openMobileMenu());
 
   return (
     <>
@@ -80,7 +75,7 @@ const Page = () => {
               </div>
               <div className="menu">
                 {currentUser ? null : (
-                  <button id="platform" onClick={handlerRegister}>
+                  <button id="platform" onClick={openRegisterModal}>
                     Register
                   </button>
                 )}
@@ -89,36 +84,20 @@ const Page = () => {
                     <button id="platform">Open App</button>
                   </a>
                 ) : (
-                  <button id="platform" onClick={handlerLogin}>
+                  <button id="platform" onClick={openLoginModal}>
                     Log in
                   </button>
                 )}
               </div>
-              <Register
-                registerVisible={registerVisible}
-                closeHandler={closeHandlerRegister}
-                error={error}
-                setError={setError}
-              />
-              <Login
-                logInVisible={logInVisible}
-                closeHandler={closeHandlerLogin}
-              />
+              <Register />
+              <Login />
             </nav>
           </div>
           <div className={changeColor ? "menu-mobile-active" : "menu-mobile"}>
-            {openMobile ? (
-              <HiOutlineMenu
-                id="icon-menu"
-                onClick={() => setOpenMobile(false)}
-              />
-            ) : (
-              <HiOutlineMenu
-                id="icon-menu"
-                onClick={() => setOpenMobile(true)}
-              />
+            {mobileMenuIsVisible ? null : (
+              <HiOutlineMenu id="icon-menu" onClick={openMobileMenu} />
             )}
-            <MenuMobile openMobile={openMobile} setOpenMobile={setOpenMobile} />
+            <MenuMobile />
           </div>
         </header>
         <div className="content" onScroll={positionScroll}>
@@ -129,7 +108,7 @@ const Page = () => {
                 EzLearn is a online platform of e-learning, with the best tools
                 and technologies, adaptable to any institution.
               </p>
-              <a href="" id="discover" >
+              <a href="/" id="discover">
                 Discover EZLEARN
               </a>
             </div>
@@ -263,7 +242,7 @@ const Page = () => {
                     <h2>Daniel Shelach</h2>
                     <h3>Chief Executive Officer</h3>
                     <div className="icons">
-                      <a href="" id="icon-team">
+                      <a href="/" id="icon-team">
                         <FaLinkedinIn />
                       </a>
                     </div>
@@ -275,7 +254,7 @@ const Page = () => {
                     <h2>Bernarda Saffron</h2>
                     <h3>Growth Marketer</h3>
                     <div className="icons">
-                      <a href="" id="icon-team">
+                      <a href="/" id="icon-team">
                         <FaLinkedinIn />
                       </a>
                     </div>
@@ -287,7 +266,7 @@ const Page = () => {
                     <h2>Ryan Beau</h2>
                     <h3>Web Developer</h3>
                     <div className="icons">
-                      <a href="" id="icon-team">
+                      <a href="/" id="icon-team">
                         <FaLinkedinIn />
                       </a>
                     </div>
@@ -401,7 +380,7 @@ const Page = () => {
             <div className="footer-bottom">
               <p id="copy">
                 copyright &copy;2022{" "}
-                <a href="https://www.dlmarques.com/" target="_blank">
+                <a href="https://www.dlmarques.com/" target="_blank" rel="noreferrer">
                   dlmarques
                 </a>
               </p>

@@ -14,7 +14,6 @@ export function useAuth() {
 
 export function ContextProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
-  const [id, setId] = useState();
   const [loading, setLoading] = useState(true);
   const history = useHistory();
 
@@ -134,7 +133,6 @@ export function ContextProvider({ children }) {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
-      setId(user.uid)
       setLoading(false);
     });
     return unsubscribe;
@@ -142,7 +140,6 @@ export function ContextProvider({ children }) {
 
   const value = {
     currentUser,
-    id,
     signup,
     login,
     logout,
