@@ -4,8 +4,10 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import './calendar.scss'
+import { useAuth } from '../../../../../contexts/Context';
 
-const CalendarComponent = ({userID}) => {
+const CalendarComponent = () => {
+  const {userID} = useAuth()
     const [events, setEvents] = useState()
 
     useEffect(() => {

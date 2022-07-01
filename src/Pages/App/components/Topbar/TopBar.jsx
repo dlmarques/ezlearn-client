@@ -11,10 +11,16 @@ import { sidebarActions } from '../../../../store/UI/SideBar/sidebar';
 
 
 
-const TopBar = ({userData}) => {
+const TopBar = () => {
   const dispatch = useDispatch();
 
   const sidebar = useSelector((state) => state.sidebarUI.isOpened)
+  const avatar = useSelector((state) => state.auth.avatar)
+  const firstName = useSelector((state) => state.auth.firstName)
+  const lastName = useSelector((state) => state.auth.lastName)
+  const role = useSelector((state) => state.auth.role)
+
+
 
   const openSidebar = () => dispatch(sidebarActions.openSidebar())
 
@@ -62,9 +68,9 @@ const TopBar = ({userData}) => {
       <Popover>
         <Popover.Trigger>
         <User
-              src={userData && userData.avatar}
-              name={userData && userData.firstName + " " + userData.lastName}
-              description={userData && userData.role}
+              src={avatar && avatar}
+              name={firstName && firstName + " " + lastName}
+              description={role && role}
               as="button"
               css={{ 
                 px: 0,

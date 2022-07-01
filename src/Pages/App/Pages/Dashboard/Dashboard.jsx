@@ -8,22 +8,22 @@ import ProfileCard from './components/ProfileCard';
 import Todo from '../../components/Todo/Todo'
 
 
-const Dashboard = ({userData , userID}) => {
+const Dashboard = () => {
   return (
     <>
     <div className="dashboard-container">
       <div className="first-grid">
-      <WelcomeCard userData={userData} id="welcome-card"/>
-      <ProfileCard userData={userData}/>
+      <WelcomeCard  id="welcome-card"/>
+      <ProfileCard />
       </div>
       <div className="second-grid">
       <ContainerChart/>
       <div className="calendar">
-      <CalendarComponent userID={userID} />
+      <CalendarComponent />
       </div>
       </div>
       <div className="third-row">
-      <Todo editable={false} userID={userID} />
+      <Todo editable={false} />
       <ContainerActivity />
       </div>
     </div>

@@ -13,26 +13,23 @@ import Courses from "./Pages/Courses/Courses";
 import { useAuth } from "../../contexts/Context";
 import { useDispatch, useSelector } from "react-redux";
 import { sidebarActions } from "../../store/UI/SideBar/sidebar";
-import { authActions } from "../../store/auth/auth";
 
 const App = () => {
   const dispatch = useDispatch();
   let { path } = useRouteMatch();
   const { getUserInfo, userID } = useAuth();
   const width = window.innerWidth;
-  const [userData, setUserData] = useState();
   const sidebar = useSelector((state) => state.sidebarUI.isOpened);
 
   const openSidebar = () => dispatch(sidebarActions.openSidebar());
   const closeSidebar = () => dispatch(sidebarActions.closeSidebar());
 
   useEffect(() => {
+
     const getData = async () => {
-      const data = await getUserInfo(userID);
-      setUserData(data);
-      dispatch(authActions.setUsername(data))
-    };
-    getData();
+      await getUserInfo(userID)(dispatch);
+    } 
+    getData()
 
     //set Sidebar size
     if (width <= 950) {
@@ -48,11 +45,11 @@ const App = () => {
         <div className="main-container-app">
           <div className="sidebar-app">
             {" "}
-            <SideBar userData={userData && userData} />{" "}
+            <SideBar/>{" "}
           </div>
           <div className={sidebar ? "topbar active" : "topbar"}>
             {" "}
-            <TopBar userData={userData && userData} />{" "}
+            <TopBar/>{" "}
           </div>
           <div
             className={
@@ -61,7 +58,7 @@ const App = () => {
           >
             <Switch>
               <Route exact path={path}>
-                <Dashboard userData={userData && userData} />
+                <Dashboard />
               </Route>
               <Route path={`${path}/calendar`}>
                 <CalendarPage />

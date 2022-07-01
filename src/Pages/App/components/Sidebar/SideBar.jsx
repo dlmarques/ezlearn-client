@@ -21,6 +21,7 @@ const SideBar = ({userData}) => {
   const dispatch = useDispatch();
   const {logout} = useAuth();
   const sidebar = useSelector((state) => state.sidebarUI.isOpened)
+  const role = useSelector((state) => state.auth.role)
   
   const openChanheProfile = () => dispatch(changeProfileModalActions.openModal())
   const closeSidebar = () => dispatch(sidebarActions.closeSidebar())
@@ -37,7 +38,7 @@ const SideBar = ({userData}) => {
       <div className="links">
         <a href="/app"><BiHomeCircle/> {!sidebar ? "Overview" : null}</a>
         <a href="/app/calendar"><BsCalendarDate/> {!sidebar ? "Calendar" : null}</a>
-        {userData && userData.role === 'Student' ? <a href="/app/courses"><BiNotepad/> {!sidebar ? "Courses" : null}</a> : <a href="/app/courses"><BiNotepad/> {!sidebar ? "My Courses" : null}</a>}
+        {role && role === 'Student' ? <a href="/app/courses"><BiNotepad/> {!sidebar ? "Courses" : null}</a> : <a href="/app/courses"><BiNotepad/> {!sidebar ? "My Courses" : null}</a>}
         <a href="/app"><IoLibraryOutline/> {!sidebar ? "Library" : null}</a>
         <a onClick={openChanheProfile}><IoSettingsOutline/> {!sidebar ? "Settings" : null}</a>
       </div>

@@ -7,6 +7,7 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../firebase-config";
 import { v4 } from "uuid";
 import {coursesActions} from '../store/Courses/courses'
+import { authActions } from "../store/auth/auth";
 
 
 const Context = React.createContext();
@@ -121,18 +122,37 @@ export function ContextProvider({ children }) {
     }))
   }
 
-  async function getUserInfo(id){
-    return await fetch("http://localhost:3001/api/user/userData", {
-     method: "Post",
-     headers: {
-       "Content-Type": "application/json",
-     },
-     body: JSON.stringify({
-       id: id
-     })
-     })
-     .then(response => response.json())
-     .then((actualData) => actualData)
+   const getUserInfo = (id) => async (dispatch) =>{ 
+    const fetchData = async () => {
+      const response = await fetch("http://localhost:3001/api/user/userData", {
+        method: "Post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: id
+        })
+        })
+
+      if(!response.ok){
+        console.error('error fetch');
+      }
+
+      const data = await response.json()
+
+      return data;
+    } 
+
+    try {
+      const userData = await fetchData();
+      console.log(userData)
+      dispatch(authActions.setFirstName(userData.firstName))
+      dispatch(authActions.setLastName(userData.lastName))
+      dispatch(authActions.setRole(userData.role))
+      dispatch(authActions.setAvatar(userData.avatar))
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async function getCourses(){

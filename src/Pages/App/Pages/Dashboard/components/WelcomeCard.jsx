@@ -1,13 +1,15 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import learn from "../../../../../img/learn.png"
 import "./welcomecard.scss"
 
-const WelcomeCard = ({userData}) => {
+const WelcomeCard = () => {
+  const firstName = useSelector((state) => state.auth.firstName)
   return (
     <>
           <div className="welcome-card">
             <div className='text'>
-              <h1>Welcome back {userData && userData.firstName}!</h1>
+              <h1>Welcome back {firstName && firstName}!</h1>
               <h3>You have complete 5 lessons in last day</h3>
             </div>
             <div className='image'>
