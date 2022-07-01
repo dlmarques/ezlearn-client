@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Todo from '../../components/Todo/Todo'
 import Calendar from '../../components/Calendar/Calendar'
 import './calendarpage.scss'
-import InsertDate from '../../components/Calendar/InsertDate'
 
-const CalendarPage = ({userID}) => {
+
+const CalendarPage = () => {
 
   return (
     <>
     <div className="calendar-container">
-    <Calendar userID={userID} />
+    <Calendar />
     <div className="column-two">
-    <Todo userID={userID} editable={true} /> 
+    <Todo editable={true} /> 
     </div>
     </div>
     </>

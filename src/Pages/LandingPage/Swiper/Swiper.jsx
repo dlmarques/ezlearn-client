@@ -2,9 +2,8 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {Autoplay} from "swiper";
 import { Navigation, Scrollbar, A11y } from "swiper";
-import { BsCameraVideo , BsStarFill } from "react-icons/bs";
-import { FiBook } from "react-icons/fi";
-import { BsPeople, BsFillChatQuoteFill } from "react-icons/bs";
+import {  BsStarFill } from "react-icons/bs";
+import {  BsFillChatQuoteFill } from "react-icons/bs";
 import testimonial1 from "../../../img/testimonial1.jpg"
 import testimonial2 from "../../../img/testimonial2.jpg"
 import testimonial3 from "../../../img/testimonial3.jpg"

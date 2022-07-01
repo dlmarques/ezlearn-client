@@ -13,14 +13,13 @@ import Courses from "./Pages/Courses/Courses";
 import { useAuth } from "../../contexts/Context";
 import { useDispatch, useSelector } from "react-redux";
 import { sidebarActions } from "../../store/UI/SideBar/sidebar";
+import { authActions } from "../../store/auth/auth";
 
 const App = () => {
   const dispatch = useDispatch();
   let { path } = useRouteMatch();
-  const { currentUser, getUserInfo } = useAuth();
-  const userID = currentUser._delegate.uid;
+  const { getUserInfo, userID } = useAuth();
   const width = window.innerWidth;
-
   const [userData, setUserData] = useState();
   const sidebar = useSelector((state) => state.sidebarUI.isOpened);
 
@@ -31,6 +30,7 @@ const App = () => {
     const getData = async () => {
       const data = await getUserInfo(userID);
       setUserData(data);
+      dispatch(authActions.setUsername(data))
     };
     getData();
 
@@ -61,10 +61,10 @@ const App = () => {
           >
             <Switch>
               <Route exact path={path}>
-                <Dashboard userData={userData} userID={userID} />
+                <Dashboard userData={userData && userData} />
               </Route>
               <Route path={`${path}/calendar`}>
-                <CalendarPage userID={userID} />
+                <CalendarPage />
               </Route>
               <Route path={`${path}/courses`}>
                 <Courses />

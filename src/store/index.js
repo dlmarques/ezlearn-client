@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
+import authSlice from './auth/auth';
 import coursesSlice from './Courses/courses';
 import AddCourseModalSlice from './UI/AddCourseModal/AddCourseModal';
 import changeProfileModalSlice from './UI/ChangeProfileModal/ChangeProfileModal';
@@ -18,6 +19,7 @@ const store  = configureStore({
         changeProfileUI: changeProfileModalSlice.reducer,
         addCourseUI: AddCourseModalSlice.reducer,
         courses: coursesSlice.reducer,
+        auth: authSlice.reducer
     }
 })
 

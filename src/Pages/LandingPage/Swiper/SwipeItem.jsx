@@ -1,7 +1,6 @@
 import React from "react";
 
 const SwipeItem = ({photo, icon, rating, textMessage, name}) => {
-  const stars = rating;
   return (
     <>
       <div className="swipe-item">

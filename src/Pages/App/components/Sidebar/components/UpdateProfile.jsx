@@ -1,21 +1,22 @@
 import React, { useState } from "react";
-import { Modal, Text, Input, Button } from "@nextui-org/react";
-import { useAuth } from "../../../../../contexts/Context";
 import "./UpdateProfile.scss";
+
+//UI Components
+import { Modal, Text, Input, Button } from "@nextui-org/react";
+
+//State management
+import { useAuth } from "../../../../../contexts/Context";
 import { useDispatch, useSelector } from "react-redux";
 import { changeProfileModalActions } from "../../../../../store/UI/ChangeProfileModal/ChangeProfileModal";
 
 const UpdateProfile = () => {
   const dispatch = useDispatch()
-  const { currentUser, changePassword, logout } = useAuth();
+  const { changePassword, logout, username } = useAuth();
   const [ currentPassword, setCurrentPassword] = useState();
   const [ newPassword, setNewPassword] = useState();
   const [ error, setError] = useState();
   const changeProfileUI = useSelector((state) => state.changeProfileUI.isOpened)
 
-
-  const userID = currentUser._delegate.uid;
-  const username = currentUser._delegate.displayName;
 
   const closeModal = () => dispatch(changeProfileModalActions.closeModal())
 
@@ -51,7 +52,7 @@ const UpdateProfile = () => {
           <Input
             type="text"
             css={{ background: "transparent" }}
-            value={username}
+            value={username} 
             disabled
             label="Username"
           /> 

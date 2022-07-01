@@ -8,6 +8,7 @@ import { storage } from "../firebase-config";
 import { v4 } from "uuid";
 import {coursesActions} from '../store/Courses/courses'
 
+
 const Context = React.createContext();
 
 export function useAuth() {
@@ -16,8 +17,10 @@ export function useAuth() {
 
 export function ContextProvider({ children }) {
   const dispatch = useDispatch();
-  const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
+  const [currentUser, setCurrentUser] = useState();
+  const [username, setUsername] = useState();
+  const [userID, setUserID] = useState();
   const history = useHistory();
 
   //FIREBASE FUNCTIONS
@@ -142,13 +145,17 @@ export function ContextProvider({ children }) {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
+      setUserID(user.uid);
+      setUsername(user.displayName)
       setLoading(false);
     });
     return unsubscribe;
-  }, []);
+  }, [login]);
 
   const value = {
     currentUser,
+    userID,
+    username,
     signup,
     login,
     logout,

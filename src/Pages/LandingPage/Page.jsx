@@ -25,16 +25,15 @@ import Register from "../AuthPages/Register/Register";
 import IMAGES from "../../img/images";
 
 //state management
-import { useAuth } from "../../contexts/Context";
 import { loginModalActions } from "../../store/UI/LoginModal/LoginUI";
 import { registerModalActions } from "../../store/UI/RegisterModal/RegisterUI";
 import { mobileMenuActions } from "../../store/UI/MobileMenu/MobileMenuUI";
+import { useAuth } from "../../contexts/Context";
 
 const Page = () => {
   const dispatch = useDispatch();
+  const {currentUser} = useAuth();
   const prevScrollY = useRef(0);
-  const { currentUser } = useAuth();
-
   const [changeColor, setChangeColor] = useState(false);
   const mobileMenuIsVisible = useSelector((state) => state.mobileMenuUI.mobileMenuIsVisible);
 

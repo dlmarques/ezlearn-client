@@ -6,8 +6,10 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import "./calendar.scss";
 import InsertDate from "./InsertDate";
 import DeleteEvent from "./DeleteEvent";
+import { useAuth } from "../../../../contexts/Context";
 
-const Calendar = ({ userID }) => {
+const Calendar = () => {
+  const {userID} = useAuth()
   const [events, setEvents] = useState();
   const [addVisible, setAddVisible] = useState(false);
   const [deleteVisible, setDeleteVisible] = useState(false);

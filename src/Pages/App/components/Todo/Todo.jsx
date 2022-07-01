@@ -3,8 +3,10 @@ import { useEffect } from "react";
 import {  Button } from '@nextui-org/react';
 import "./todo.scss";
 import InsertTask from "./components/InsertTask";
+import { useAuth } from "../../../../contexts/Context";
 
-const Todo = ({ userID, editable }) => {
+const Todo = ({ editable }) => {
+  const {userID} = useAuth()
   const [task, setTask] = useState("");
   const [inserted, setInserted] = useState(0);
   const [tasksList, setTasksList] = useState();

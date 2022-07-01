@@ -16,6 +16,7 @@ const Courses = () => {
   const { getCourses } = useAuth();
 
   const [coursesData, setCoursesData] = useState();
+  const [input, setInput] = useState('')
   const courses = useSelector((state) => state.courses.courses);
 
   const openAddCourseModal = () => dispatch(addCourseModalActions.openAddCourseModal())
@@ -23,6 +24,8 @@ const Courses = () => {
   useEffect(() => {
     getCourses().then((coursesData) => setCoursesData(coursesData || []));
   }, [courses]);
+
+  
 
   return (
     <>
@@ -35,8 +38,9 @@ const Courses = () => {
             css={{
               width: "20vw",
             }}
+            onChange={e => setInput(e.target.value)}
           />
-          <Button
+         { <Button
             auto
             css={{
               backgroundColor: "#00adb5",
@@ -44,18 +48,29 @@ const Courses = () => {
             onClick={openAddCourseModal}
           >
             Add Course
-          </Button>
+          </Button>}
         </div>
         <AddCourse />
         <div className="courses">
           {coursesData &&
-            coursesData.map((course) => (
+            coursesData
+            .filter((val) => {
+              if(input == ''){
+                return val
+              }else if(val.courseName.toLowerCase().includes(input.toLowerCase())){
+                return val
+              }
+            })
+            .map((course, id) => (
               <Course
+                key={id}
                 img={course.image}
                 title={course.courseName}
                 duration={course.duration}
               />
-            ))}
+            ))
+          
+          }
         </div>
       </div>
     </>
