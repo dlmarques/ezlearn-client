@@ -18,6 +18,7 @@ const Courses = () => {
   const [coursesData, setCoursesData] = useState();
   const [input, setInput] = useState('')
   const courses = useSelector((state) => state.courses.courses);
+  const role = useSelector((state) => state.auth.role)
 
   const openAddCourseModal = () => dispatch(addCourseModalActions.openAddCourseModal())
 
@@ -40,7 +41,7 @@ const Courses = () => {
             }}
             onChange={e => setInput(e.target.value)}
           />
-         { <Button
+         {role === 'Seller' && <Button
             auto
             css={{
               backgroundColor: "#00adb5",

@@ -145,7 +145,6 @@ export function ContextProvider({ children }) {
 
     try {
       const userData = await fetchData();
-      console.log(userData)
       dispatch(authActions.setFirstName(userData.firstName))
       dispatch(authActions.setLastName(userData.lastName))
       dispatch(authActions.setRole(userData.role))

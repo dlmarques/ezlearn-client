@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import '../../styles/sidebar.scss'
 
 //UI components 
-import { IoMenu, IoSettingsOutline, IoLibraryOutline } from 'react-icons/io5'
+import { IoMenu, IoSettingsOutline } from 'react-icons/io5'
 import { BiHomeCircle, BiLogOut, BiNotepad } from 'react-icons/bi'
-import { BsCalendarDate } from 'react-icons/bs'
+import { BsCalendarDate, BsFolder } from 'react-icons/bs'
 import { Button } from '@nextui-org/react';
 import UpdateProfile from './components/UpdateProfile'
 
@@ -39,7 +39,7 @@ const SideBar = ({userData}) => {
         <a href="/app"><BiHomeCircle/> {!sidebar ? "Overview" : null}</a>
         <a href="/app/calendar"><BsCalendarDate/> {!sidebar ? "Calendar" : null}</a>
         {role && role === 'Student' ? <a href="/app/courses"><BiNotepad/> {!sidebar ? "Courses" : null}</a> : <a href="/app/courses"><BiNotepad/> {!sidebar ? "My Courses" : null}</a>}
-        <a href="/app"><IoLibraryOutline/> {!sidebar ? "Library" : null}</a>
+        <a href="/app/library"><BsFolder/> {!sidebar ? "Files Manager" : null}</a>
         <a onClick={openChanheProfile}><IoSettingsOutline/> {!sidebar ? "Settings" : null}</a>
       </div>
       <UpdateProfile/>

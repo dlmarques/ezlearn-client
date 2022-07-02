@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import "./styles/app.scss";
 
@@ -13,6 +13,7 @@ import Courses from "./Pages/Courses/Courses";
 import { useAuth } from "../../contexts/Context";
 import { useDispatch, useSelector } from "react-redux";
 import { sidebarActions } from "../../store/UI/SideBar/sidebar";
+import Library from "./Pages/FilesManager/Library";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -65,6 +66,9 @@ const App = () => {
               </Route>
               <Route path={`${path}/courses`}>
                 <Courses />
+              </Route>
+              <Route path={`${path}/library`}>
+                <Library/>
               </Route>
             </Switch>
           </div>
