@@ -15,8 +15,8 @@ const FileMenu = ({ selectAll }) => {
       <div className="file bar">
         <Checkbox onChange={selectAll} />
         <p>Name</p>
-        <p>Modified</p>
-        <p>Group</p>
+        <p className="modified">Modified</p>
+        <p id="group">Group</p>
         <Button auto css={{ backgroundColor: "#00adb5" }} onClick={openUpload}>
           Upload
         </Button>

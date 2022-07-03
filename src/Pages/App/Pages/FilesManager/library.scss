@@ -13,7 +13,7 @@
     display: flex;
     justify-content: space-between;
     .folder {
-      height: 100%;
+      height: auto;
       width: 20%;
       border-radius: 14px;
       display: flex;
@@ -25,7 +25,7 @@
       user-select: none;
       cursor: pointer;
       svg {
-        font-size: 4rem;
+        font-size: 3vw;
         color: #00adb5;
       }
 
@@ -37,6 +37,7 @@
         color: #eee;
         h2 {
           font-weight: 700;
+          font-size: 1.5vw;
         }
         .row {
           width: 100%;
@@ -46,9 +47,11 @@
 
           h3 {
             font-weight: 300;
+            font-size: 1.1vw;
           }
           p {
             text-shadow: 300;
+            font-size: 1.1vw;
           }
         }
       }
@@ -69,6 +72,17 @@
         background-color: transparent;
         display: flex;
         align-items: center;
+
+        p{
+          font-size: 1vw;
+        }
+      
+        @media (max-width: 1000px){
+          #group{
+            display: none;
+          }
+        }
+       
     }
     .file {
       background-color: #393e46;
@@ -87,6 +101,19 @@
       }
       svg{
         cursor: pointer;
+      }
+      p{
+        font-size: 1vw;
+      }
+      @media (max-width: 1000px){
+        #avatar-group{
+          display: none;
+        }
+      }
+      @media (max-width:650px){
+        .modified{
+          display: none;
+        }
       }
     }
   }

@@ -16,8 +16,8 @@ const File = ({name, modified, group, isSelected}) => {
             <div className="file">
           <Checkbox isSelected={isSelected} />
           <p>{name}</p>
-          <p>{modified}</p>
-          <Avatar.Group count={group}>
+          <p className='modified'>{modified}</p>
+          <Avatar.Group id='avatar-group' count={group}>
             {dummyUsers.map((url, index) => (
               <Avatar
                 key={index}
