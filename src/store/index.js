@@ -9,6 +9,8 @@ import registerModalSlice from './UI/RegisterModal/RegisterUI';
 import resetPasswordModalSlice from './UI/ResetPasswordModal/ResetPasswordSlice';
 import sidebarSlice from './UI/SideBar/sidebar';
 import uploadUISlice from './UI/UploadModal/uploadfile';
+import profileUISlice from './UI/ProfileModal/ProfileModal';
+
 
 const store  = configureStore({
     reducer: {
@@ -20,6 +22,7 @@ const store  = configureStore({
         changeProfileUI: changeProfileModalSlice.reducer,
         addCourseUI: AddCourseModalSlice.reducer,
         uploadUI: uploadUISlice.reducer,
+        profileUI: profileUISlice.reducer,
         courses: coursesSlice.reducer,
         auth: authSlice.reducer
     }

@@ -6,13 +6,24 @@ import { FiUser } from "react-icons/fi";
 import { BsCalendarDate } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
 import { IoSettingsOutline } from "react-icons/io5";
+import Profile from "../Profile/Profile";
 
 //State Management
 import { useAuth } from "../../../../contexts/Context";
+import { useDispatch } from "react-redux";
+import { changeProfileModalActions } from "../../../../store/UI/ChangeProfileModal/ChangeProfileModal";
+import { profileUIActions } from "../../../../store/UI/ProfileModal/ProfileModal";
 
 const ProfileBox = () => {
+  const dispatch = useDispatch();
   const { currentUser, logout } = useAuth();
   const username = currentUser._delegate.displayName;
+  
+  const openChangeProfile = () => dispatch(changeProfileModalActions.openModal())
+
+  const openProfile = () => {
+    dispatch(profileUIActions.open())
+  }
 
   return (
     <>
@@ -46,6 +57,7 @@ const ProfileBox = () => {
                 color: "#eeeeeec9",
               },
             }}
+            onClick={openProfile}
           >
             <FiUser />
             Profile
@@ -69,7 +81,7 @@ const ProfileBox = () => {
               }}
             >
               <BsCalendarDate />
-              Calendar
+              <a href="/app/calendar" style={{textDecoration: 'none', color: '#eee'}}>Calendar</a>
             </Text>
         </Row>
         <Row>
@@ -88,6 +100,7 @@ const ProfileBox = () => {
                 color: "#eeeeeec9",
               },
             }}
+            onClick={openChangeProfile}
           >
             <IoSettingsOutline />
             Settings
@@ -116,6 +129,7 @@ const ProfileBox = () => {
           </Text>
         </Row>
       </Grid.Container>
+      <Profile username={username} />
     </>
   );
 };
