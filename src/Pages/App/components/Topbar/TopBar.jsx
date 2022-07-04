@@ -126,7 +126,7 @@ const TopBar = () => {
                 height: "auto",
                 width: "300px",
                 backgroundColor: "#393E46",
-                padding: "0",
+                padding: "10px",
               }
             }      
             >

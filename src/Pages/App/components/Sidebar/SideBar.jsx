@@ -16,6 +16,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { sidebarActions } from '../../../../store/UI/SideBar/sidebar'
 import { useAuth } from '../../../../contexts/Context'
 import { changeProfileModalActions } from '../../../../store/UI/ChangeProfileModal/ChangeProfileModal'
+import { pricingUIActions } from '../../../../store/UI/PricingUI/PricingModal'
+import PricingUI from '../Pricing/PricingUI'
 
 const SideBar = ({userData}) => {
   const dispatch = useDispatch();
@@ -25,7 +27,7 @@ const SideBar = ({userData}) => {
   
   const openChangeProfile = () => dispatch(changeProfileModalActions.openModal())
   const closeSidebar = () => dispatch(sidebarActions.closeSidebar())
-
+  const openPricing = () => dispatch(pricingUIActions.open())
 
   return (
     <>
@@ -48,12 +50,13 @@ const SideBar = ({userData}) => {
         <>
          <img src={IMAGES.vector} alt="" />
         <h3>Upgrade to <span>PRO</span> for more resources</h3>
-        <Button css={{backgroundColor: "#00ADB5", fontWeight: "300"}}>Upgrade Now</Button>
+        <Button css={{backgroundColor: "#00ADB5", fontWeight: "300"}} onClick={openPricing}>Upgrade Now</Button>
         </>
        :
           <BiLogOut onClick={logout}/>
       }
       </div>
+      <PricingUI/>
     </div>
     </>
   )

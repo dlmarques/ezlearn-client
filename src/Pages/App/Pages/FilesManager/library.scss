@@ -37,7 +37,7 @@
         color: #eee;
         h2 {
           font-weight: 700;
-          font-size: 1.5vw;
+          font-size: 1.3vw;
         }
         .row {
           width: 100%;
@@ -47,17 +47,24 @@
 
           h3 {
             font-weight: 300;
-            font-size: 1.1vw;
+            font-size: 0.9vw;
           }
           p {
             text-shadow: 300;
-            font-size: 1.1vw;
+            font-size:0.9vw;
           }
         }
       }
 
       &:hover {
         border: 1px solid #00adb5;
+      }
+
+      @media (max-width: 900px){
+
+        svg{
+          display: none;
+        }
       }
     }
   }
@@ -103,7 +110,7 @@
         cursor: pointer;
       }
       p{
-        font-size: 1vw;
+        font-size: 0.9vw;
       }
       @media (max-width: 1000px){
         #avatar-group{

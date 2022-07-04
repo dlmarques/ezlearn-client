@@ -20,9 +20,10 @@ const Profile = ({ username }) => {
 
   return (
     <Modal
+      closeButton
       open={open}
       onClose={closeModal}
-      css={{ backgroundColor: "#393e46" }}
+      css={{ backgroundColor: "#393e46", paddingBottom: '20px' }}
       blur
     >
       <Modal.Header>

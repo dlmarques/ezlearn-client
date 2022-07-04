@@ -1,0 +1,28 @@
+.price{
+    display: flex;
+    justify-content: center;
+    h2{
+        font-size: 40px;
+        color: #eee;
+        user-select: none;
+        transition: all .3s ease-in-out; 
+        &:hover{
+            color: #00adb5;
+        }
+    }
+}
+.features-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h3{
+        color: #eee;
+        user-select: none;
+        transition: all .3s ease-in-out; 
+        &:hover{
+            color: #00adb5;
+        }
+    }
+}

@@ -10,6 +10,7 @@ import resetPasswordModalSlice from './UI/ResetPasswordModal/ResetPasswordSlice'
 import sidebarSlice from './UI/SideBar/sidebar';
 import uploadUISlice from './UI/UploadModal/uploadfile';
 import profileUISlice from './UI/ProfileModal/ProfileModal';
+import pricingUISlice from './UI/PricingUI/PricingModal';
 
 
 const store  = configureStore({
@@ -23,6 +24,7 @@ const store  = configureStore({
         addCourseUI: AddCourseModalSlice.reducer,
         uploadUI: uploadUISlice.reducer,
         profileUI: profileUISlice.reducer,
+        pricingUI: pricingUISlice.reducer,
         courses: coursesSlice.reducer,
         auth: authSlice.reducer
     }
