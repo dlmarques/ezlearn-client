@@ -41,7 +41,7 @@ const Courses = () => {
             }}
             onChange={e => setInput(e.target.value)}
           />
-         {role === 'Seller' && <Button
+         {role === 'Student' && <Button
             auto
             css={{
               backgroundColor: "#00adb5",

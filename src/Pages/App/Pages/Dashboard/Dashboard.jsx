@@ -2,7 +2,7 @@ import React from 'react'
 import WelcomeCard from "./components/WelcomeCard"
 import "./Dashboard.scss"
 import CalendarComponent from './components/CalendarComponent';
-import ContainerChart from '../../components/ChartLearning/Container';
+import ContainerChart from '../../components/EnrolledCourses/Container';
 import ContainerActivity from '../../components/ChartActivity/ContainerActivity';
 import ProfileCard from './components/ProfileCard';
 import Todo from '../../components/Todo/Todo'

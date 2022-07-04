@@ -1,21 +1,21 @@
-.todo-container{
-background-color: #393e46;
-width: 100%;
-min-height: 350px;
-padding: 0 30px 0 30px;
-border-radius: 14px;
-
-h1{
-    color: #fff;
-    text-align: center;
-}
-
-.row{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    input{
+.todo-dashboard {
+    background-color: #393e46;
+    width: 30%;
+    min-height: 350px;
+    padding: 0 30px 0 30px;
+    border-radius: 14px;
+  
+    h1 {
+      color: #fff;
+      text-align: center;
+    }
+  
+    .row {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      input {
         height: 30px;
         border-radius: 14px;
         font-size: 1.1rem;
@@ -23,16 +23,16 @@ h1{
         outline: none;
         font-weight: 300;
         padding: 10px;
+      }
     }
-}
-
-.tasks-list{
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px 0 0 0;
-    .task{
+  
+    .tasks-list {
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px 0 0 0;
+      .task {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -40,15 +40,66 @@ h1{
         -ms-word-break: break-all;
         word-break: break-all;
         border-radius: 14px;
-
-        h2{
-            color: #fff;
-            font-size: 1.1vw;
-            width: 60%;
-            font-weight: 500;
+  
+        h2 {
+          color: #fff;
+          font-size: 1.1vw;
+          width: 60%;
+          font-weight: 500;
         }
-
+      }
     }
 }
 
+.todo-container {
+  background-color: #393e46;
+  width: 100%;
+  min-height: 350px;
+  padding: 0 30px 0 30px;
+  border-radius: 14px;
+
+  h1 {
+    color: #fff;
+    text-align: center;
+  }
+
+  .row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    input {
+      height: 30px;
+      border-radius: 14px;
+      font-size: 1.1rem;
+      border: none;
+      outline: none;
+      font-weight: 300;
+      padding: 10px;
+    }
+  }
+
+  .tasks-list {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 0 0 0;
+    .task {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px 0 20px;
+      -ms-word-break: break-all;
+      word-break: break-all;
+      border-radius: 14px;
+
+      h2 {
+        color: #fff;
+        font-size: 1.1vw;
+        width: 60%;
+        font-weight: 500;
+      }
+    }
+  }
 }

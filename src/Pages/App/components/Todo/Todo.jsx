@@ -70,7 +70,7 @@ const Todo = ({ editable }) => {
 
   return (
     <>
-      <div className="todo-container">
+      <div className={!editable ? "todo-dashboard" : "todo-container"}>
         <h1>Tasks List</h1>
         {editable ? <InsertTask task={task} setTask={setTask} insertTask={insertTask} /> : null}
         <div className="tasks-list">
@@ -83,7 +83,6 @@ const Todo = ({ editable }) => {
           )
         }
         </div>
-
       </div>
     </>
   );
