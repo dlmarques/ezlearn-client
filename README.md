@@ -3,7 +3,7 @@
 An application used for e-learning with a dashboard where users can access all for a successful journey, built with React, Redux, JavaScript, and CSS.
 
 EzLearn has a calendar where users can book tasks, a to-do list, and a file manager that allows users to upload and save files. All data is saved in a database in real-time.
-EzLearn has a calendar where users can book tasks, a to-do list, and a file manager that allows users to upload and save files. All data is saved in a database in real-time.
+
 
 ## Project Status
 
