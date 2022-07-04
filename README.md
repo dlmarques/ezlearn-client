@@ -11,10 +11,10 @@ This project is currently in development.
 
 ## Project Screen Shot(s)
 
-
-[ PRETEND SCREEN SHOT IS HERE ]
-
-[ PRETEND OTHER SCREEN SHOT IS HERE ]
+![screenshotez](https://user-images.githubusercontent.com/88408262/177142940-a69dbca2-0e0d-4108-bdaa-07d9ca14c2c9.png)
+![secreenshotez2](https://user-images.githubusercontent.com/88408262/177143010-6628734a-eeec-4f6f-b432-b397749d2b39.png)
+![screenshotez3](https://user-images.githubusercontent.com/88408262/177142966-df28ac96-1819-474f-85d0-816e04ae1ea5.png)
+![screenshotez4](https://user-images.githubusercontent.com/88408262/177143018-596fc34f-2814-459d-b88d-0cd6da083394.png)
 
 ## Installation and Setup Instructions  
 
