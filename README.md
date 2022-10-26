@@ -46,3 +46,6 @@ To Visit App:
    At the end, the technologies implemented in this project are React, React-Router 4.0, Redux, and a significant amount of VanillaJS, JSX, and CSS. I chose to use the `create-react-app` boilerplate to minimize initial setup and invest more time in diving into weird technological rabbit holes. In the next iteration I plan on handrolling a `webpack.config.js` file to more fully understand the build process.
 
 
+## License
+
+Copyright © 2022 dlmarques. All rights reserved.
